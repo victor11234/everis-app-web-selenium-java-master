@@ -1,0 +1,28 @@
+#spring.profiles.active:
+#
+# Look for all properties in WebDriverProperties.md file.
+#
+###################
+### URL - SITES ###
+###################
+url:
+  sandBox: https://trailhead.salesforce.com/es-MX/promo/orgs/fsc_managed
+
+###############################
+### WebDriver Configuration ###
+###############################
+webdriver:
+  browser: chrome #chrome, safari, firefox, edge
+    # Si tienes configurado la variable $PATH del sistema con los drivers no es necesario colocar esta propiedad
+  #path: C:\Testing\web\everis-app-web-selenium-java-master\drivers\win\chromedriver.exe
+  path: C:\FW Originales\everis-app-web-selenium-java-master\drivers\win\chromedriver.exe
+
+###########################################################################
+### To use JDBC configuration, comment 'autoconfigure.exclude' property ###
+###########################################################################
+spring:
+  dataSource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:54322/xxxx
+    username: xxxx
+    password: xxxx
