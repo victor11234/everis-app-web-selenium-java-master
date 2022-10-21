@@ -7,5 +7,6 @@ Característica: Prueba de concepto SpringBoot + Cucumber - sandBox
     Dado que abro la pagina de sandbox
     Y aceptamos las cookies
     Y iniciamos sesion
+
     Entonces acceder a leer
 

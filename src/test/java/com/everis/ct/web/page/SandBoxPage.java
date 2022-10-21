@@ -18,6 +18,18 @@ public class SandBoxPage extends WebBase {
     @FindBy (xpath = "//button[contains(text(),'Leer')]")
     protected WebElement buttonLeer;
 
+    @FindBy (xpath = "(//button[@id='signup_or_signin_with_salesforce'])[position()=2]" )
+    protected WebElement buttonSalesForce;
+
+    @FindBy (xpath = "//input[@id='username']" )
+    protected WebElement userName;
+
+    @FindBy (xpath = "//input[@id='password']" )
+    protected WebElement password;
+
+    @FindBy (xpath = "//input[@id='Login']" )
+    protected WebElement buttonLogin;
+
 
     public void aceptarCookies(){
 
@@ -32,6 +44,19 @@ public class SandBoxPage extends WebBase {
         SearchContext shadow1 = shadow0.findElement(By.cssSelector("lwc-tds-header")).getShadowRoot();
         SearchContext shadow2 = shadow1.findElement(By.cssSelector("lwc-tds-header-desktop")).getShadowRoot();
         shadow2.findElement(By.cssSelector("lwc-tds-button-link:nth-child(2)")).click();
+
+        var wait = webDriverWait(Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(buttonCookies));
+        click(buttonCookies);
+        wait.until(ExpectedConditions.elementToBeClickable(buttonSalesForce));
+        click(buttonSalesForce);
+        wait.until(ExpectedConditions.elementToBeClickable(userName));
+        type(userName, "vlozano");
+        wait.until(ExpectedConditions.elementToBeClickable(password));
+        type(password, "vlozano");
+        wait.until(ExpectedConditions.elementToBeClickable(buttonLogin));
+        click(buttonLogin);
+
     }
 
     public void clickLeer(){

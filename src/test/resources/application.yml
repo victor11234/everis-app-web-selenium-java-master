@@ -15,7 +15,7 @@ webdriver:
   browser: chrome #chrome, safari, firefox, edge
     # Si tienes configurado la variable $PATH del sistema con los drivers no es necesario colocar esta propiedad
   #path: C:\Testing\web\everis-app-web-selenium-java-master\drivers\win\chromedriver.exe
-  path: C:\Users\jpedraze\IdeaProjects\everis-app-web-selenium-java-master\drivers\win\chromedriver.exe
+  path: C:\Alkosto\everis-app-web-selenium-java-master\drivers\win\chromedriver.exe
 
 ###########################################################################
 ### To use JDBC configuration, comment 'autoconfigure.exclude' property ###
