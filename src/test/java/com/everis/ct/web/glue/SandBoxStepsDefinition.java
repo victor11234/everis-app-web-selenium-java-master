@@ -33,12 +33,12 @@ public class SandBoxStepsDefinition {
     public void aceptamosLasCookies() {
 
         sandBoxStep.aceptamosLasCookies();
-        System.out.println("Prueba");
+
     }
 
     @Y("iniciamos sesion")
     public void iniciamosSesion() {
-
+        sandBoxStep.iniciamosSesion();
     }
 
     @Entonces("acceder a leer")

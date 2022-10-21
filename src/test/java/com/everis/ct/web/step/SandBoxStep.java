@@ -17,7 +17,9 @@ public class SandBoxStep {
 
         page.sandBoxPage().aceptarCookies();
     }
-
+    public void iniciamosSesion() {
+        page.sandBoxPage().iniciamosSesion();
+    }
     public void clickLeer() {
 
         page.sandBoxPage().clickLeer();
