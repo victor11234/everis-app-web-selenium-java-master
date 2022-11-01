@@ -7,7 +7,6 @@
 ###################
 url:
   sandBox: https://41k0st0--uat.my.salesforce.com/
-  google: https://www.google.com/
 
 
 ###############################
@@ -17,7 +16,7 @@ webdriver:
   browser: chrome #chrome, safari, firefox, edge
     # Si tienes configurado la variable $PATH del sistema con los drivers no es necesario colocar esta propiedad
   #path: C:\Testing\web\everis-app-web-selenium-java-master\drivers\win\chromedriver.exe
-  path: C:\Users\jpedraze\IdeaProjects\Alkosto\everis-app-web-selenium-java-master\drivers\win\chromedriver.exe
+  path: C:\Alkosto\everis-app-web-selenium-java-master\drivers\win\chromedriver.exe
 
 ###########################################################################
 ### To use JDBC configuration, comment 'autoconfigure.exclude' property ###

@@ -24,25 +24,34 @@ public class CreacionCuentaStepDefinition {
         webDriverManager.navigateTo(urlSaleforce);
     }
 
-    @Y("inicia sesion (.*) (.*)")
-    public void iniciaSesionUsuarioClave(String usuario, String clave) {
-        System.out.println("Prueba");
+    @Y("^inicia sesion (.*) (.*)")
+    public void iniciaSesion(String usuario, String clave) {
+        casoStep.inicioSesion(usuario, clave);
     }
 
     @Y("Seleccionamos atencion al cliente")
     public void seleccionamosAtencionAlCliente() {
+        casoStep.seleccionAtencionAlCliente();
     }
 
     @Y("en la lista desplegable seleccionamos la opcion cuentas")
     public void enLaListaDesplegableSeleccionamosLaOpcionCuentas() {
+
+        casoStep.seleccionaOpcionListaDesplegable();
     }
 
-    @Y("Vamos a cuentas y realizamos la busqueda de cuenta")
-    public void vamosACuentasYRealizamosLaBusquedaDeCuenta() {
+    @Y("^Realizamos la busqueda de cuenta (.*) (.*)$")
+    public void realizamosLaBusquedaDeCuenta(String cuenta, String tipoCuenta) {
+        casoStep.busquedaCuenta(cuenta, tipoCuenta);
     }
 
-    @Y("Si la cuenta no existe realizamos la creacion")
-    public void siLaCuentaNoExisteRealizamosLaCreacion() {
+
+    @Y("^Si la cuenta no existe realizamos la creacion de empresa (.*) (.*)")
+    public void siLaCuentaNoExisteRealizamosLaCreacion(String nombreCuenta, String identificacionEmpresa) {
+
+        casoStep.crearCuentaEmpresa(nombreCuenta, identificacionEmpresa);
     }
+
+
 
 }

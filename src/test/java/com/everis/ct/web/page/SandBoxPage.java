@@ -69,6 +69,11 @@ public class SandBoxPage extends WebBase {
     @FindBy (xpath = "//span[text()='Guardar']")
     protected  WebElement guardarCaso;
 
+    @FindBy (xpath = "//div[@class='close slds-col--bump-left slds-p-left--none slds-context-bar__icon-action ']")
+    protected  WebElement cerrarPestaña;
+
+
+
 
 
 
@@ -107,6 +112,8 @@ public class SandBoxPage extends WebBase {
 
 
                var wait = webDriverWait(Duration.ofSeconds(15));
+               wait.until(ExpectedConditions.elementToBeClickable(cerrarPestaña));
+               click(cerrarPestaña);
                wait.until(ExpectedConditions.elementToBeClickable(listaDesplegable));
                click(listaDesplegable);
 
