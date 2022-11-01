@@ -2,11 +2,29 @@
 @DEMO
 Característica: Prueba de concepto SpringBoot + Cucumber - sandBox
 
-  @sandBox
-  Escenario: Automatizacion salesforce
-    Dado que abro la pagina de sandbox
-    Y aceptamos las cookies
-    Y iniciamos sesion
 
-    Entonces acceder a leer
+  @creacionCaso
+  Esquema del escenario: Creacion de caso
+
+    Dado que ingresamos a la pagina de Salesforce
+    Y iniciamos sesion <Usuario> <clave>
+    Y seleccionamos atencion al cliente
+    Y Desplegamos el menu de busqueda
+    Y creamos un caso <cuenta> <tipoDeCaso> <selectOrigenCaso> <prioridadCaso> <almacen>
+    Y terminamos de crear el caso <asunto> <descripcion> <planesDeAccion> <estado>
+
+
+
+    Ejemplos:
+
+      | Usuario                           | clave        | tipoDeCaso          | selectOrigenCaso|  cuenta       |   prioridadCaso | almacen | asunto |descripcion | planesDeAccion | estado |
+      | 1035922188@colcomercio.com.co.uat | Pruebas2023* | FELICITACIONES      |    Teléfono     | VICTOR LOZANO |    Baja         | 68      | dasda  | sdasd      |  ewqeqwew      | Nuevo  |
+
+
+
+
+
+
+
+
 

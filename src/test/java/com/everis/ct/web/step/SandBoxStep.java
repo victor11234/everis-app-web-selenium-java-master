@@ -13,15 +13,26 @@ public class SandBoxStep {
     @Autowired
     private StepPages page;
 
-    public void aceptamosLasCookies() {
 
-        page.sandBoxPage().aceptarCookies();
+    public void iniciamosSesion(String user, String pass) {
+        page.sandBoxPage().iniciamosSesion(user, pass);
     }
-    public void iniciamosSesion() {
-        page.sandBoxPage().iniciamosSesion();
-    }
-    public void clickLeer() {
 
-        page.sandBoxPage().clickLeer();
+    public void opcionAtencionAlCliente(){
+        page.sandBoxPage().atencionAlCliente();
+    }
+
+    public void despliegaMenu() {
+
+        page.sandBoxPage().listaDesplegable();
+    }
+    public void crearCaso(String tipoDeCaso, String cuenta, String selectOrigenCaso, String prioridadCaso, String almacen){
+
+        page.sandBoxPage().creacionCaso(tipoDeCaso, cuenta, selectOrigenCaso, prioridadCaso, almacen);
+    }
+
+    public void terminaCaso(String asunto, String descripcion, String planesDeAccion, String estado){
+
+        page.sandBoxPage().terminaCaso(asunto,descripcion, planesDeAccion,estado);
     }
 }
