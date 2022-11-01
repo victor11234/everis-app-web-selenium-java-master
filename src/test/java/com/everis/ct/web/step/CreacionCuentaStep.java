@@ -11,20 +11,20 @@ import org.springframework.stereotype.Component;
 public class CreacionCuentaStep {
 
     @Autowired
-    private CreacionCuentaPage page;
+    private StepPages page;
 
     public void inicioSesion( String usuario, String clave){
 
-        page.iniciamosSesion(usuario, clave);
+        page.creacionCuenta().inicioSesion(usuario, clave);
     }
 
     public void seleccionAtencionAlCliente(){
 
-        page.atencionAlCliente();
+        page.creacionCuenta().seleccionAtencionAlCliente();
     }
 
     public void seleccionaOpcionListaDesplegable() {
 
-        page.listaDesplegable();
+        page.creacionCuenta().seleccionaOpcionListaDesplegable();
     }
 }

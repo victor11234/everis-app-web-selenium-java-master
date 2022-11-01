@@ -19,21 +19,14 @@ public class CreacionCuentaStepDefinition {
     private CreacionCuentaStep casoStep;
 
 
-    //private WebDriver webDriver;
-
-    @Dado("que ingresamos a la pagina de Salesforce")
-    public void queIngresamosAlSalesforce() {
-
-        //webDriver.manage().getCookies();
-        webDriverManager.navigateTo(urlSaleforce);
-    }
     @Dado("que ingresamos a Salesforce")
     public void queIngresamosASalesforce() {
-
+        webDriverManager.navigateTo(urlSaleforce);
     }
 
-    @Y("inicia sesion <Usuario> <Clave>")
-    public void iniciaSesionUsuarioClave() {
+    @Y("inicia sesion (.*) (.*)")
+    public void iniciaSesionUsuarioClave(String usuario, String clave) {
+        System.out.println("Prueba");
     }
 
     @Y("Seleccionamos atencion al cliente")
@@ -51,4 +44,5 @@ public class CreacionCuentaStepDefinition {
     @Y("Si la cuenta no existe realizamos la creacion")
     public void siLaCuentaNoExisteRealizamosLaCreacion() {
     }
+
 }

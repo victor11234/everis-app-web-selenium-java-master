@@ -1,5 +1,6 @@
 package com.everis.ct.web.page;
 
+import com.everis.ct.web.step.CreacionCasoStep;
 import com.everis.ct.web.step.CreacionCuentaStep;
 import org.springframework.stereotype.Component;
 
@@ -14,4 +15,6 @@ public class StepPages {
     public CreacionCuentaStep creacionCuenta() {return new CreacionCuentaStep();
     }
 
+    public CreacionCasoStep creacionCaso() {return new CreacionCasoStep();
+    }
 }

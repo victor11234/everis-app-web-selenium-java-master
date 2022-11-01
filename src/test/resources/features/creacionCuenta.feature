@@ -1,5 +1,4 @@
 #language:es
-@DEMO
 Característica: Prueba de concepto SpringBoot + Cucumber - sandBox
 
   @CreacionCuenta

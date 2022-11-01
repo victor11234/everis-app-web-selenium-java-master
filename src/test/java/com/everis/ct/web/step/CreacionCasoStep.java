@@ -15,15 +15,16 @@ public class CreacionCasoStep {
 
 
     public void iniciamosSesion(String user, String pass) {
-        page.creacionCasoPage().iniciamosSesion(user, pass);
+
+        page.creacionCaso().iniciamosSesion(user, pass);
     }
 
     public void despliegaMenu() {
 
-        page.creacionCasoPage().listaDesplegable();
+        page.creacionCaso().despliegaMenu();
     }
     public void crearCaso(String tipoDeCaso){
 
-        page.creacionCasoPage().creacionCaso(tipoDeCaso);
+        page.creacionCaso().crearCaso(tipoDeCaso);
     }
 }
