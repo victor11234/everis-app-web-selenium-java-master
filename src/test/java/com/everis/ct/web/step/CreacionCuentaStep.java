@@ -36,4 +36,9 @@ public class CreacionCuentaStep {
 
         page.creacionCuenta().crearCuentaEmpresa(nombreCuenta, identificacionEmpresa);
     }
+
+    public  void crearCuentaPersona(String nombre, String apellido, String email, String telefono, String tipoDeDocumento){
+
+        page.creacionCuenta().crearCuentaPersonas(nombre, apellido, email, telefono, tipoDeDocumento);
+    }
 }

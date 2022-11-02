@@ -2,7 +2,6 @@ package com.everis.ct.web.glue;
 
 import com.everis.ct.web.lib.WebDriverManager;
 import com.everis.ct.web.step.CreacionCuentaStep;
-import com.everis.ct.web.step.SandBoxStep;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Y;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +40,7 @@ public class CreacionCuentaStepDefinition {
     }
 
     @Y("^Realizamos la busqueda de cuenta (.*) (.*)$")
-    public void realizamosLaBusquedaDeCuenta(String cuenta, String tipoCuenta) {
+    public void realizamosLaBusquedaDeCuenta(String cuenta, String tipoCuenta){
         casoStep.busquedaCuenta(cuenta, tipoCuenta);
     }
 
@@ -53,5 +52,9 @@ public class CreacionCuentaStepDefinition {
     }
 
 
+    @Y("^Si la cuenta no existe realizamos la creacion de personas (.*) (.*) (.*) (.*) (.*)")
+    public void siLaCuentaNoExisteRealizamosLaCreacionDePersonas(String nombre, String apellido, String email, String telefono, String tipoDeDocumento) {
 
+        casoStep.crearCuentaPersona(nombre, apellido, email, telefono, tipoDeDocumento);
+    }
 }
