@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @ScreenShot
 @Component
-public class SandBoxStep {
+public class CreaCasoStep {
 
     @Autowired
     private StepPages page;

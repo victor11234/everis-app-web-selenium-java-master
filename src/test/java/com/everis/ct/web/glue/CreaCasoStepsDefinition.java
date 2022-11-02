@@ -2,7 +2,7 @@ package com.everis.ct.web.glue;
 
 import com.everis.ct.web.WebAutomationApplication;
 import com.everis.ct.web.lib.WebDriverManager;
-import com.everis.ct.web.step.SandBoxStep;
+import com.everis.ct.web.step.CreaCasoStep;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Y;
 import io.cucumber.spring.CucumberContextConfiguration;
@@ -12,7 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @CucumberContextConfiguration
 @SpringBootTest(classes = WebAutomationApplication.class)
-public class SandBoxStepsDefinition {
+public class CreaCasoStepsDefinition {
 
     @Value("${url.sandBox}")
     private String urlSaleforce;
@@ -20,7 +20,7 @@ public class SandBoxStepsDefinition {
     @Autowired
     private WebDriverManager webDriverManager;
     @Autowired
-    private SandBoxStep casoStep;
+    private CreaCasoStep casoStep;
 
 
     //private WebDriver webDriver;

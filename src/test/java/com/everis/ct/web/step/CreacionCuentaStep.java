@@ -41,4 +41,9 @@ public class CreacionCuentaStep {
 
         page.creacionCuenta().crearCuentaPersonas(nombre, apellido, email, telefono, tipoDeDocumento);
     }
+
+    public void crarCuentaAliados(String cuenta){
+
+        page.creacionCuenta().crearCuentaAliados(cuenta);
+    }
 }

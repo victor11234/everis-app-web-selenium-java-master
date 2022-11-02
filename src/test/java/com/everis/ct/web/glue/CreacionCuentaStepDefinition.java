@@ -57,4 +57,10 @@ public class CreacionCuentaStepDefinition {
 
         casoStep.crearCuentaPersona(nombre, apellido, email, telefono, tipoDeDocumento);
     }
+
+    @Y("^Si la cuenta no existe realizamos la creacion de aliados (.*)")
+    public void siLaCuentaNoExisteRealizamosLaCreacionDeAliados(String cuenta) {
+
+        casoStep.crarCuentaAliados(cuenta);
+    }
 }

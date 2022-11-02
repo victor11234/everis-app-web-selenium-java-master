@@ -61,6 +61,9 @@ public class CreacionCuentaPage extends WebBase {
     @FindBy (xpath = "//span[text()='Persona Natural']")
     protected WebElement cuentaPersona;
 
+    @FindBy (xpath = "//span[text()='Aliados']")
+    protected WebElement cuentaAliados;
+
     //Xpath Cuenta Empresa
 
     @FindBy (xpath = "(//input[@name='_2'])[position()=1]")
@@ -83,8 +86,12 @@ public class CreacionCuentaPage extends WebBase {
     @FindBy (xpath = "//input[@name='PersonMobilePhone']")
     protected WebElement campoTelefono;
 
-    @FindBy (xpath = "//select[@name = 'Tipo_identificacion']")
-    protected WebElement selectIdentificacion;
+    // Xpath Cuenta Aliados
+
+    @FindBy (xpath = "//input[@name='_0']")
+    protected WebElement campoNombreCuerntaA;
+
+
 
 
 
@@ -149,25 +156,24 @@ public class CreacionCuentaPage extends WebBase {
         wait.until(ExpectedConditions.elementToBeClickable(botonSiguiente));
         click(botonSiguiente);
 
-        if(tipoCuenta.equalsIgnoreCase("Empresas")) {
+
+        if (tipoCuenta.equalsIgnoreCase("Empresas")) {
 
             wait.until(ExpectedConditions.elementToBeClickable(cuentaEmpresa));
             click(cuentaEmpresa);
 
 
-
-        } else if (tipoCuenta.equalsIgnoreCase("Persona") ){
+        } else if (tipoCuenta.equalsIgnoreCase("Persona")) {
 
             wait.until(ExpectedConditions.elementToBeClickable(cuentaPersona));
             click(cuentaPersona);
 
+        } else {
 
+            wait.until(ExpectedConditions.elementToBeClickable(cuentaAliados));
+            click(cuentaAliados);
 
         }
-        wait.until(ExpectedConditions.elementToBeClickable(botonSiguiente));
-        click(botonSiguiente);
-
-
 
     }
 
@@ -197,6 +203,16 @@ public class CreacionCuentaPage extends WebBase {
         WebElement documento =find().getElementByXPath("//option[contains(text(),'"+tipoDeDocumento+"')]");
         wait.until(ExpectedConditions.elementToBeClickable(documento));
         click(documento);
+        wait.until(ExpectedConditions.elementToBeClickable(botonCrearCuenta));
+        click(botonCrearCuenta);
+
+    }
+
+    public void crearCuentaAliados(String cuenta){
+
+        var wait  = webDriverWait(Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(campoNombreCuerntaA));
+        type(campoNombreCuerntaA, cuenta);
         wait.until(ExpectedConditions.elementToBeClickable(botonCrearCuenta));
         click(botonCrearCuenta);
 
