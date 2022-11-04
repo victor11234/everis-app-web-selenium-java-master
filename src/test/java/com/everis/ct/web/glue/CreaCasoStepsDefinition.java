@@ -10,33 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@CucumberContextConfiguration
-@SpringBootTest(classes = WebAutomationApplication.class)
+
 public class CreaCasoStepsDefinition {
 
-    @Value("${url.sandBox}")
-    private String urlSaleforce;
 
-    @Autowired
-    private WebDriverManager webDriverManager;
     @Autowired
     private CreaCasoStep casoStep;
 
-
-    //private WebDriver webDriver;
-
-    @Dado("que ingresamos a la pagina de Salesforce")
-    public void queIngresamosAlSalesforce() {
-
-
-        webDriverManager.navigateTo(urlSaleforce);
-    }
-
-
-    @Y("^iniciamos sesion (.*) (.*)$")
-    public void iniciamosSesion(String user, String pass) {
-        casoStep.iniciamosSesion(user,pass);
-    }
 
     @Y("seleccionamos atencion al cliente")
     public void seleccionamosAtencionAlCliente() {

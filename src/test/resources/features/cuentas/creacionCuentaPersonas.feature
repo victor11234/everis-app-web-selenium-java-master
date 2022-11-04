@@ -5,8 +5,8 @@ Característica: Prueba de concepto SpringBoot + Cucumber - sandBox
 
   Esquema del escenario: Creacion de cuenta
 
-    Dado que ingresamos a Salesforce
-    Y inicia sesion <Usuario> <Clave>
+    Dado que ingresamos a la pagina de Salesforce
+    Y iniciamos sesion <Usuario> <Clave>
     Y Seleccionamos atencion al cliente
     Y en la lista desplegable seleccionamos la opcion cuentas
     Y Realizamos la busqueda de cuenta  <CuentaUsuario> Persona

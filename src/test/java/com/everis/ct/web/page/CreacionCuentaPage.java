@@ -9,17 +9,6 @@ import java.time.Duration;
 
 public class CreacionCuentaPage extends WebBase {
 
-
-    //Xpath inicio de sesion
-    @FindBy (xpath = "//input[@id='username']" )
-    protected WebElement userName;
-
-    @FindBy (xpath = "//input[@id='password']" )
-    protected WebElement password;
-
-    @FindBy (xpath = "//input[@id='Login']" )
-    protected WebElement buttonLogin;
-
     //Xpath atencion al cliente
     @FindBy (xpath = "//*[contains(@class,'slds-icon-waffle')]")
     protected WebElement waffleOption;
@@ -31,7 +20,6 @@ public class CreacionCuentaPage extends WebBase {
     protected WebElement opcionAtencionAlCliente;
 
     //Xpath selecciona la opcion cuenta
-
     @FindBy (xpath = "//button[@title ='Mostrar menú de navegación']")
     protected WebElement listaDesplegable;
 
@@ -65,7 +53,6 @@ public class CreacionCuentaPage extends WebBase {
     protected WebElement cuentaAliados;
 
     //Xpath Cuenta Empresa
-
     @FindBy (xpath = "(//input[@name='_2'])[position()=1]")
     protected WebElement campoNombreCuenta;
 
@@ -73,7 +60,6 @@ public class CreacionCuentaPage extends WebBase {
     protected WebElement botonCrearCuenta;
 
     //Xpath Cuenta Personas
-
     @FindBy (xpath = "//input[@name='Nome_Persona']")
     protected WebElement campoNombre;
 
@@ -87,31 +73,10 @@ public class CreacionCuentaPage extends WebBase {
     protected WebElement campoTelefono;
 
     // Xpath Cuenta Aliados
-
     @FindBy (xpath = "//input[@name='_0']")
     protected WebElement campoNombreCuerntaA;
 
-
-
-
-
-
-
-
-    public void iniciamosSesion(String usuario, String clave) {
-
-        var wait = webDriverWait(Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(userName));
-        type(userName, usuario);
-        type(password, clave);
-        click(buttonLogin);
-
-
-    }
-
     public void atencionAlCliente(){
-
-
 
         var wait = webDriverWait(Duration.ofSeconds(10));
 
@@ -122,14 +87,9 @@ public class CreacionCuentaPage extends WebBase {
         //wait.until(ExpectedConditions.elementToBeClickable(opcionAtencionAlCliente));
         //click(opcionAtencionAlCliente);
         opcionAtencionAlCliente.click();
-
-
-
     }
 
     public void listaDesplegable(){
-
-
         var wait = webDriverWait(Duration.ofSeconds(20));
         wait.until(ExpectedConditions.elementToBeClickable(listaDesplegable));
         click(listaDesplegable);
@@ -138,14 +98,9 @@ public class CreacionCuentaPage extends WebBase {
         click(opcionCuentas);
         wait.until(ExpectedConditions.elementToBeClickable(botonCuentas));
         click(botonCuentas);
-
-
-
     }
 
     public void busquedaCuenta(String cuenta, String tipoCuenta){
-
-
         var wait  = webDriverWait(Duration.ofSeconds(20));
         wait.until(ExpectedConditions.elementToBeClickable(botonBusquedaCuenta));
         click(botonBusquedaCuenta);
@@ -156,67 +111,49 @@ public class CreacionCuentaPage extends WebBase {
         wait.until(ExpectedConditions.elementToBeClickable(botonSiguiente));
         click(botonSiguiente);
 
-
         if (tipoCuenta.equalsIgnoreCase("Empresas")) {
-
             wait.until(ExpectedConditions.elementToBeClickable(cuentaEmpresa));
             click(cuentaEmpresa);
-
-
         } else if (tipoCuenta.equalsIgnoreCase("Persona")) {
-
             wait.until(ExpectedConditions.elementToBeClickable(cuentaPersona));
             click(cuentaPersona);
-
         } else {
-
             wait.until(ExpectedConditions.elementToBeClickable(cuentaAliados));
             click(cuentaAliados);
-
         }
-
     }
 
     public void crearCuentaEmpresa(String nombreCuenta, String identificacionEmpresa){
-
         var wait  = webDriverWait(Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(campoNombreCuenta));
         type(campoNombreCuenta, nombreCuenta);
-
         WebElement tipoIdentificacion =find().getElementByXPath("//option[text()='"+identificacionEmpresa+"']");
         wait.until(ExpectedConditions.elementToBeClickable(tipoIdentificacion));
         click(tipoIdentificacion);
         wait.until(ExpectedConditions.elementToBeClickable(botonCrearCuenta));
         click(botonCrearCuenta);
-
     }
 
     public void crearCuentaPersonas(String nombre, String apellido, String email, String telefono, String tipoDeDocumento){
-
         var wait  = webDriverWait(Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(campoNombre));
         type(campoNombre, nombre);
         type(campoApellido, apellido);
         type(campoEmail, email);
         type(campoTelefono, telefono);
-
         WebElement documento =find().getElementByXPath("//option[contains(text(),'"+tipoDeDocumento+"')]");
         wait.until(ExpectedConditions.elementToBeClickable(documento));
         click(documento);
         wait.until(ExpectedConditions.elementToBeClickable(botonCrearCuenta));
         click(botonCrearCuenta);
-
     }
 
     public void crearCuentaAliados(String cuenta){
-
         var wait  = webDriverWait(Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(campoNombreCuerntaA));
         type(campoNombreCuerntaA, cuenta);
         wait.until(ExpectedConditions.elementToBeClickable(botonCrearCuenta));
         click(botonCrearCuenta);
-
     }
-
 
 }

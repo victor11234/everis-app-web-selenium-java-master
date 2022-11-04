@@ -9,17 +9,6 @@ import java.time.Duration;
 
 public class CreaCasoPage extends WebBase {
 
-
-
-    @FindBy (xpath = "//input[@id='username']" )
-    protected WebElement userName;
-
-    @FindBy (xpath = "//input[@id='password']" )
-    protected WebElement password;
-
-    @FindBy (xpath = "//input[@id='Login']" )
-    protected WebElement buttonLogin;
-
     @FindBy (xpath = "//*[contains(@class,'slds-icon-waffle')]")
     protected WebElement waffleOption;
 
@@ -68,32 +57,11 @@ public class CreaCasoPage extends WebBase {
     protected  WebElement guardarCaso;
 
     @FindBy (xpath = "//div[@class='close slds-col--bump-left slds-p-left--none slds-context-bar__icon-action ']")
-    protected  WebElement cerrarPestaña;
+    protected  WebElement cerrarPestana;
 
-
-
-
-
-
-
-
-    public void iniciamosSesion(String user, String pass) {
-
-        var wait = webDriverWait(Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(userName));
-        type(userName, user);
-        type(password, pass);
-        click(buttonLogin);
-
-
-    }
 
     public void atencionAlCliente(){
-
-
-
             var wait = webDriverWait(Duration.ofSeconds(10));
-
             wait.until(ExpectedConditions.elementToBeClickable(waffleOption));
             click(waffleOption);
             wait.until(ExpectedConditions.elementToBeClickable(atencionAlCliente));
@@ -101,40 +69,27 @@ public class CreaCasoPage extends WebBase {
             //wait.until(ExpectedConditions.elementToBeClickable(opcionAtencionAlCliente));
             //click(opcionAtencionAlCliente);
             opcionAtencionAlCliente.click();
-
-
-
     }
-
     public void listaDesplegable(){
-
-
                var wait = webDriverWait(Duration.ofSeconds(15));
-               wait.until(ExpectedConditions.elementToBeClickable(cerrarPestaña));
-               click(cerrarPestaña);
+               wait.until(ExpectedConditions.elementToBeClickable(cerrarPestana));
+               click(cerrarPestana);
                wait.until(ExpectedConditions.elementToBeClickable(listaDesplegable));
                click(listaDesplegable);
-
                wait.until(ExpectedConditions.elementToBeClickable(opcionCasos));
                click(opcionCasos);
                wait.until(ExpectedConditions.elementToBeClickable(botonCasos));
                click(botonCasos);
-
-
-
     }
 
     public void creacionCaso(String tipoDeCaso, String cuenta, String selectOrigenCaso, String prioridadCaso, String almacen){
-
         var wait = webDriverWait(Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(buttonNew));
         click(buttonNew);
-
         WebElement caso = find().getElementByXPath("//span[text()='"+tipoDeCaso+"']");
         wait.until(ExpectedConditions.elementToBeClickable(caso));
         click(caso);
         click(buttonSiguiente);
-
         wait.until(ExpectedConditions.elementToBeClickable(campoBuscarCuenta));
         type(campoBuscarCuenta, cuenta);
         /*WebElement clickCuenta = find().getElementByXPath("//span[text()= '"+cuenta+" en Cuentas']");
@@ -166,7 +121,6 @@ public class CreaCasoPage extends WebBase {
     }
 
     public void terminaCaso(String asunto, String descripcion, String planesDeAccion, String estado){
-
         type(campoAsunto,asunto);
         type(campoDescripcion,descripcion);
         type(campoPlanes,planesDeAccion);

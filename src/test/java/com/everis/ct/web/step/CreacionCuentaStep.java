@@ -12,10 +12,6 @@ public class CreacionCuentaStep {
     @Autowired
     private StepPages page;
 
-    public void inicioSesion( String usuario, String clave){
-
-        page.creacionCuenta().iniciamosSesion(usuario, clave);
-    }
 
     public void seleccionAtencionAlCliente(){
 

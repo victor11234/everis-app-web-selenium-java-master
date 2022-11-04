@@ -2,31 +2,15 @@ package com.everis.ct.web.glue;
 
 import com.everis.ct.web.lib.WebDriverManager;
 import com.everis.ct.web.step.CreacionCuentaStep;
+import com.everis.ct.web.util.General;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Y;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
 public class CreacionCuentaStepDefinition {
-
-    @Value("${url.sandBox}")
-    private String urlSaleforce;
-
-    @Autowired
-    private WebDriverManager webDriverManager;
     @Autowired
     private CreacionCuentaStep casoStep;
-
-
-    @Dado("que ingresamos a Salesforce")
-    public void queIngresamosASalesforce() {
-        webDriverManager.navigateTo(urlSaleforce);
-    }
-
-    @Y("^inicia sesion (.*) (.*)")
-    public void iniciaSesion(String usuario, String clave) {
-        casoStep.inicioSesion(usuario, clave);
-    }
 
     @Y("Seleccionamos atencion al cliente")
     public void seleccionamosAtencionAlCliente() {

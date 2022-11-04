@@ -13,26 +13,21 @@ public class CreaCasoStep {
     @Autowired
     private StepPages page;
 
-
-    public void iniciamosSesion(String user, String pass) {
-        page.sandBoxPage().iniciamosSesion(user, pass);
-    }
-
     public void opcionAtencionAlCliente(){
-        page.sandBoxPage().atencionAlCliente();
+        page.creaCasoPage().atencionAlCliente();
     }
 
     public void despliegaMenu() {
 
-        page.sandBoxPage().listaDesplegable();
+        page.creaCasoPage().listaDesplegable();
     }
     public void crearCaso(String tipoDeCaso, String cuenta, String selectOrigenCaso, String prioridadCaso, String almacen){
 
-        page.sandBoxPage().creacionCaso(tipoDeCaso, cuenta, selectOrigenCaso, prioridadCaso, almacen);
+        page.creaCasoPage().creacionCaso(tipoDeCaso, cuenta, selectOrigenCaso, prioridadCaso, almacen);
     }
 
     public void terminaCaso(String asunto, String descripcion, String planesDeAccion, String estado){
 
-        page.sandBoxPage().terminaCaso(asunto,descripcion, planesDeAccion,estado);
+        page.creaCasoPage().terminaCaso(asunto,descripcion, planesDeAccion,estado);
     }
 }
