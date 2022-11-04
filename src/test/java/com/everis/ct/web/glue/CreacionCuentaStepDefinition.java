@@ -1,12 +1,8 @@
 package com.everis.ct.web.glue;
 
-import com.everis.ct.web.lib.WebDriverManager;
 import com.everis.ct.web.step.CreacionCuentaStep;
-import com.everis.ct.web.util.General;
-import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Y;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 
 public class CreacionCuentaStepDefinition {
     @Autowired
@@ -24,8 +20,8 @@ public class CreacionCuentaStepDefinition {
     }
 
     @Y("^Realizamos la busqueda de cuenta (.*) (.*)$")
-    public void realizamosLaBusquedaDeCuenta(String cuenta, String tipoCuenta){
-        casoStep.busquedaCuenta(cuenta, tipoCuenta);
+    public void realizamosLaBusquedaDeCuenta(String cuentaUsuario, String tipoCuenta){
+        casoStep.busquedaCuenta(cuentaUsuario, tipoCuenta);
     }
 
 

@@ -121,6 +121,8 @@ public class CreacionCuentaPage extends WebBase {
             wait.until(ExpectedConditions.elementToBeClickable(cuentaAliados));
             click(cuentaAliados);
         }
+        wait.until(ExpectedConditions.elementToBeClickable(botonSiguiente));
+        click(botonSiguiente);
     }
 
     public void crearCuentaEmpresa(String nombreCuenta, String identificacionEmpresa){
