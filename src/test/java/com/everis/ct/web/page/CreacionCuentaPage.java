@@ -1,6 +1,8 @@
 package com.everis.ct.web.page;
 
 import com.everis.ct.web.base.WebBase;
+import com.everis.ct.web.util.General;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -9,15 +11,7 @@ import java.time.Duration;
 
 public class CreacionCuentaPage extends WebBase {
 
-    //Xpath atencion al cliente
-    @FindBy (xpath = "//*[contains(@class,'slds-icon-waffle')]")
-    protected WebElement waffleOption;
 
-    @FindBy (xpath = "//input[@placeholder = 'Buscar aplicaciones y elementos...']")
-    protected WebElement atencionAlCliente;
-
-    @FindBy (xpath = "//p[text()='Atención al Cliente']")
-    protected WebElement opcionAtencionAlCliente;
 
     //Xpath selecciona la opcion cuenta
     @FindBy (xpath = "//button[@title ='Mostrar menú de navegación']")
@@ -76,21 +70,10 @@ public class CreacionCuentaPage extends WebBase {
     @FindBy (xpath = "//input[@name='_0']")
     protected WebElement campoNombreCuerntaA;
 
-    public void atencionAlCliente(){
-
-        var wait = webDriverWait(Duration.ofSeconds(10));
-
-        wait.until(ExpectedConditions.elementToBeClickable(waffleOption));
-        click(waffleOption);
-        wait.until(ExpectedConditions.elementToBeClickable(atencionAlCliente));
-        //type(atencionAlCliente, "Atención al Cliente");
-        //wait.until(ExpectedConditions.elementToBeClickable(opcionAtencionAlCliente));
-        //click(opcionAtencionAlCliente);
-        opcionAtencionAlCliente.click();
-    }
-
+    protected General general = new General();
     public void listaDesplegable(){
-        var wait = webDriverWait(Duration.ofSeconds(20));
+        general.tiempoEsperaFijo();
+        var wait = webDriverWait(Duration.ofSeconds(30));
         wait.until(ExpectedConditions.elementToBeClickable(listaDesplegable));
         click(listaDesplegable);
 
@@ -101,6 +84,8 @@ public class CreacionCuentaPage extends WebBase {
     }
 
     public void busquedaCuenta(String cuenta, String tipoCuenta){
+        if (cuenta.equalsIgnoreCase("N/A"))
+            cuenta="1"+general.numeroAleatorio();
         var wait  = webDriverWait(Duration.ofSeconds(20));
         wait.until(ExpectedConditions.elementToBeClickable(botonBusquedaCuenta));
         click(botonBusquedaCuenta);
@@ -108,36 +93,60 @@ public class CreacionCuentaPage extends WebBase {
         driver().switchTo().frame(iframe);
         wait.until(ExpectedConditions.elementToBeClickable(campoCuenta));
         type(campoCuenta, cuenta);
+        general.tiempoEsperaFijo();
+        // wait.until(ExpectedConditions.elementToBeClickable(iframe));
+        //driver().switchTo().frame(iframe);
         wait.until(ExpectedConditions.elementToBeClickable(botonSiguiente));
         click(botonSiguiente);
-
-        if (tipoCuenta.equalsIgnoreCase("Empresas")) {
-            wait.until(ExpectedConditions.elementToBeClickable(cuentaEmpresa));
-            click(cuentaEmpresa);
-        } else if (tipoCuenta.equalsIgnoreCase("Persona")) {
-            wait.until(ExpectedConditions.elementToBeClickable(cuentaPersona));
-            click(cuentaPersona);
-        } else {
-            wait.until(ExpectedConditions.elementToBeClickable(cuentaAliados));
-            click(cuentaAliados);
-        }
-        wait.until(ExpectedConditions.elementToBeClickable(botonSiguiente));
+        general.tiempoEsperaFijo();
         click(botonSiguiente);
+        general.tiempoEsperaFijo();
+        //if (!find().getElementByXPath("//a[text()='Haga clic aquí para acceder a la Cuenta']").isEnabled()) {
+            if (tipoCuenta.equalsIgnoreCase("Empresas")) {
+                wait.until(ExpectedConditions.elementToBeClickable(cuentaEmpresa));
+                click(cuentaEmpresa);
+            } else if (tipoCuenta.equalsIgnoreCase("Persona")) {
+                wait.until(ExpectedConditions.elementToBeClickable(cuentaPersona));
+                click(cuentaPersona);
+            } else {
+                wait.until(ExpectedConditions.elementToBeClickable(cuentaAliados));
+                click(cuentaAliados);
+            }
+            general.tiempoEsperaFijo();
+            wait.until(ExpectedConditions.elementToBeClickable(botonSiguiente));
+            click(botonSiguiente);
+        /*}else {
+            Assert.fail("El número de cuenta indicado ya se encuentra creado");
+        }*/
     }
 
     public void crearCuentaEmpresa(String nombreCuenta, String identificacionEmpresa){
+        if (nombreCuenta.equalsIgnoreCase("N/A"))
+            nombreCuenta= general.getRandomValue() + "S.A";
+        general.tiempoEsperaFijo();
         var wait  = webDriverWait(Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(campoNombreCuenta));
         type(campoNombreCuenta, nombreCuenta);
         WebElement tipoIdentificacion =find().getElementByXPath("//option[text()='"+identificacionEmpresa+"']");
         wait.until(ExpectedConditions.elementToBeClickable(tipoIdentificacion));
         click(tipoIdentificacion);
+        general.tiempoEsperaFijo();
         wait.until(ExpectedConditions.elementToBeClickable(botonCrearCuenta));
         click(botonCrearCuenta);
     }
 
     public void crearCuentaPersonas(String nombre, String apellido, String email, String telefono, String tipoDeDocumento){
+        if (nombre.equalsIgnoreCase("N/A"))
+            nombre = general.firstName();
+        if (apellido.equalsIgnoreCase("N/A"))
+            apellido= general.lastName();
+        if (email.equalsIgnoreCase("N/A"))
+            email= nombre+"."+ apellido+"@gmail.com";
+        if (telefono.equalsIgnoreCase("N/A"))
+            telefono= 311+general.numeroAleatorio();
+
         var wait  = webDriverWait(Duration.ofSeconds(10));
+
         wait.until(ExpectedConditions.elementToBeClickable(campoNombre));
         type(campoNombre, nombre);
         type(campoApellido, apellido);
@@ -151,6 +160,8 @@ public class CreacionCuentaPage extends WebBase {
     }
 
     public void crearCuentaAliados(String cuenta){
+        if (cuenta.equalsIgnoreCase("N/A"))
+            cuenta= general.getRandomValue() + " S.A";
         var wait  = webDriverWait(Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(campoNombreCuerntaA));
         type(campoNombreCuerntaA, cuenta);

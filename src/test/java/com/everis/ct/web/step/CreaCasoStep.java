@@ -13,12 +13,7 @@ public class CreaCasoStep {
     @Autowired
     private StepPages page;
 
-    public void opcionAtencionAlCliente(){
-        page.creaCasoPage().atencionAlCliente();
-    }
-
     public void despliegaMenu() {
-
         page.creaCasoPage().listaDesplegable();
     }
     public void crearCaso(String tipoDeCaso, String cuenta, String selectOrigenCaso, String prioridadCaso, String almacen){

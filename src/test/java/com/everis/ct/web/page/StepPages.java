@@ -14,4 +14,7 @@ public class StepPages {
     public InicioSesionPage inicioSesionPage() {return new InicioSesionPage();
     }
 
+    public PaginaInicioPage paginaInicioPage() {return new PaginaInicioPage();
+    }
+
 }

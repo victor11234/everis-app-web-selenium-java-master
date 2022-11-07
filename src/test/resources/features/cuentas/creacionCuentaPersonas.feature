@@ -7,7 +7,7 @@ Característica: Prueba de concepto SpringBoot + Cucumber - sandBox
 
     Dado que ingresamos a la pagina de Salesforce
     Y iniciamos sesion <Usuario> <Clave>
-    Y Seleccionamos atencion al cliente
+    Y hacemos proceso de seleccion Cliente
     Y en la lista desplegable seleccionamos la opcion cuentas
     Y Realizamos la busqueda de cuenta  <CuentaUsuario> Persona
     Y Si la cuenta no existe realizamos la creacion de personas <nombre> <apellido> <email> <telefono> <documento>

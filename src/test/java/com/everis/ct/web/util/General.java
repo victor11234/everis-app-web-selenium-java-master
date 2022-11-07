@@ -21,4 +21,16 @@ private Faker faker = new Faker();
     public String getRandomValue() {
         return faker.name().fullName();
     }
+
+    public void tiempoEsperaFijo(){
+        try {
+            Thread.sleep(3000);
+        }catch (Exception e){
+            e.getMessage();
+        }
+    }
+
+    public String numeroAleatorio(){
+        return  String.valueOf((int) (Math.random() * 9999999 + 1));
+    }
 }

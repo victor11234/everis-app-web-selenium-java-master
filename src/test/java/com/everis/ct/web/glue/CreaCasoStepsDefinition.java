@@ -11,13 +11,6 @@ public class CreaCasoStepsDefinition {
     @Autowired
     private CreaCasoStep casoStep;
 
-
-    @Y("seleccionamos atencion al cliente")
-    public void seleccionamosAtencionAlCliente() {
-
-        casoStep.opcionAtencionAlCliente();
-    }
-
     @Y("Desplegamos el menu de busqueda")
     public void desplegamosElMenuDeBusqueda() {
         casoStep.despliegaMenu();

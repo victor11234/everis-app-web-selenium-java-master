@@ -9,15 +9,6 @@ import java.time.Duration;
 
 public class CreaCasoPage extends WebBase {
 
-    @FindBy (xpath = "//*[contains(@class,'slds-icon-waffle')]")
-    protected WebElement waffleOption;
-
-    @FindBy (xpath = "//input[@placeholder = 'Buscar aplicaciones y elementos...']")
-    protected WebElement atencionAlCliente;
-
-    @FindBy (xpath = "//p[text()='Atención al Cliente']")
-    protected WebElement opcionAtencionAlCliente;
-
     @FindBy (xpath = "//button[@title ='Mostrar menú de navegación']")
     protected WebElement listaDesplegable;
 
@@ -60,16 +51,6 @@ public class CreaCasoPage extends WebBase {
     protected  WebElement cerrarPestana;
 
 
-    public void atencionAlCliente(){
-            var wait = webDriverWait(Duration.ofSeconds(10));
-            wait.until(ExpectedConditions.elementToBeClickable(waffleOption));
-            click(waffleOption);
-            wait.until(ExpectedConditions.elementToBeClickable(atencionAlCliente));
-            //type(atencionAlCliente, "Atención al Cliente");
-            //wait.until(ExpectedConditions.elementToBeClickable(opcionAtencionAlCliente));
-            //click(opcionAtencionAlCliente);
-            opcionAtencionAlCliente.click();
-    }
     public void listaDesplegable(){
                var wait = webDriverWait(Duration.ofSeconds(15));
                wait.until(ExpectedConditions.elementToBeClickable(cerrarPestana));

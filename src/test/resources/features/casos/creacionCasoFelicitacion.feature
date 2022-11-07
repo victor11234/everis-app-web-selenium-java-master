@@ -8,7 +8,7 @@ Característica: Prueba de concepto SpringBoot + Cucumber - sandBox
 
     Dado que ingresamos a la pagina de Salesforce
     Y iniciamos sesion <Usuario> <clave>
-    Y seleccionamos atencion al cliente
+    Y hacemos proceso de seleccion Cliente
     Y Desplegamos el menu de busqueda
     Y creamos un caso <cuenta> <tipoDeCaso> <selectOrigenCaso> <prioridadCaso> <almacen>
     Y terminamos de crear el caso <asunto> <descripcion> <planesDeAccion> <estado>

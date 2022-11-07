@@ -35,6 +35,7 @@ public class Hooks {
 
     @After(order = 0)
     public void afterScenario() {
+
         manager.quitDriver();
     }
 

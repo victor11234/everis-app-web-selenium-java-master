@@ -13,13 +13,7 @@ public class CreacionCuentaStep {
     private StepPages page;
 
 
-    public void seleccionAtencionAlCliente(){
-
-        page.creacionCuenta().atencionAlCliente();
-    }
-
     public void seleccionaOpcionListaDesplegable() {
-
         page.creacionCuenta().listaDesplegable();
     }
 

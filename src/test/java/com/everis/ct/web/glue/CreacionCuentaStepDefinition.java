@@ -8,14 +8,9 @@ public class CreacionCuentaStepDefinition {
     @Autowired
     private CreacionCuentaStep casoStep;
 
-    @Y("Seleccionamos atencion al cliente")
-    public void seleccionamosAtencionAlCliente() {
-        casoStep.seleccionAtencionAlCliente();
-    }
 
     @Y("en la lista desplegable seleccionamos la opcion cuentas")
     public void enLaListaDesplegableSeleccionamosLaOpcionCuentas() {
-
         casoStep.seleccionaOpcionListaDesplegable();
     }
 
