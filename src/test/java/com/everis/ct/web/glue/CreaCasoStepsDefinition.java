@@ -16,13 +16,17 @@ public class CreaCasoStepsDefinition {
         casoStep.despliegaMenu();
     }
 
-    @Y("^creamos un caso (.*) (.*) (.*) (.*) (.*)$")
-    public void creamosUnCaso(String cuenta,String tipoDeCaso, String selectOrigenCaso, String prioridadCaso, String almacen) {
+    @Y("^Entramos a nuevo caso, Seleccionamos el tipo de caso(.*)$")
+    public void entramosANuevoCasoSeleccionamosElTipoDeCaso(String tipoCaso) {
+        casoStep.seleccionaTipoCaso(tipoCaso);
+    }
+    @Y("^creamos un caso (.*) (.*) (.*) (.*)$")
+    public void creamosUnCaso(String cuenta,String selectOrigenCaso, String prioridadCaso, String almacen) {
 
 
         try {
             Thread.sleep(10000);
-            casoStep.crearCaso( tipoDeCaso, cuenta, selectOrigenCaso, prioridadCaso, almacen);
+            casoStep.crearCaso(cuenta, selectOrigenCaso, prioridadCaso, almacen);
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
@@ -36,4 +40,7 @@ public class CreaCasoStepsDefinition {
 
         casoStep.terminaCaso(asunto,descripcion, planesDeAccion,estado);
     }
+
+
+
 }

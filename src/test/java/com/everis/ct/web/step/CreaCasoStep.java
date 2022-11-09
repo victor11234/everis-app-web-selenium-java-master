@@ -16,9 +16,14 @@ public class CreaCasoStep {
     public void despliegaMenu() {
         page.creaCasoPage().listaDesplegable();
     }
-    public void crearCaso(String tipoDeCaso, String cuenta, String selectOrigenCaso, String prioridadCaso, String almacen){
 
-        page.creaCasoPage().creacionCaso(tipoDeCaso, cuenta, selectOrigenCaso, prioridadCaso, almacen);
+    public void seleccionaTipoCaso(String tipoCaso){
+
+       page.creaCasoPage().seleccionTipoCaso(tipoCaso);
+    }
+    public void crearCaso(String cuenta, String selectOrigenCaso, String prioridadCaso, String almacen){
+
+        page.creaCasoPage().creacionCaso(cuenta, selectOrigenCaso, prioridadCaso, almacen);
     }
 
     public void terminaCaso(String asunto, String descripcion, String planesDeAccion, String estado){
