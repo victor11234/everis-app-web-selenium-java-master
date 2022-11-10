@@ -20,27 +20,20 @@ public class CreaCasoStepsDefinition {
     public void entramosANuevoCasoSeleccionamosElTipoDeCaso(String tipoCaso) {
         casoStep.seleccionaTipoCaso(tipoCaso);
     }
-    @Y("^creamos un caso (.*) (.*) (.*) (.*)$")
-    public void creamosUnCaso(String cuenta,String selectOrigenCaso, String prioridadCaso, String almacen) {
+
+    @Y("^creamos un caso de felicitaciones (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*)$")
+    public void creamosUnCaso(String cuenta,String selectOrigenCaso, String prioridadCaso, String almacen, String asunto, String descripcion, String planesAccion, String estado) {
 
 
         try {
             Thread.sleep(10000);
-            casoStep.crearCaso(cuenta, selectOrigenCaso, prioridadCaso, almacen);
+            casoStep.crearCaso(cuenta, selectOrigenCaso, prioridadCaso, almacen, asunto, descripcion, planesAccion, estado);
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
 
 
     }
-
-
-    @Y("^terminamos de crear el caso (.*) (.*) (.*) (.*)$")
-    public void terminamosDeCrearElCaso(String asunto, String descripcion, String planesDeAccion, String estado) {
-
-        casoStep.terminaCaso(asunto,descripcion, planesDeAccion,estado);
-    }
-
 
 
 }

@@ -21,13 +21,11 @@ public class CreaCasoStep {
 
        page.creaCasoPage().seleccionTipoCaso(tipoCaso);
     }
-    public void crearCaso(String cuenta, String selectOrigenCaso, String prioridadCaso, String almacen){
+    public void crearCaso(String cuenta, String selectOrigenCaso, String prioridadCaso, String almacen, String asunto, String descripcion, String planesAccion, String estado){
 
-        page.creaCasoPage().creacionCaso(cuenta, selectOrigenCaso, prioridadCaso, almacen);
+        page.creaCasoPage().creacionCaso(cuenta, selectOrigenCaso, prioridadCaso, almacen, asunto, descripcion, planesAccion, estado);
+
     }
 
-    public void terminaCaso(String asunto, String descripcion, String planesDeAccion, String estado){
 
-        page.creaCasoPage().terminaCaso(asunto,descripcion, planesDeAccion,estado);
-    }
 }
