@@ -2,6 +2,7 @@ package com.everis.ct.web.hooks;
 
 import com.everis.ct.web.lib.WebDriverManager;
 import com.everis.ct.web.service.stepdefinition.ManageScenario;
+import com.everis.ct.web.util.General;
 import io.cucumber.java.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -25,6 +26,7 @@ public class Hooks {
 
     @Before(order = 0)
     public void setUp() {
+
         manager.setUpDriver();
     }
 

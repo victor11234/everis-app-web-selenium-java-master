@@ -21,11 +21,27 @@ public class CreaCasoStep {
 
        page.creaCasoPage().seleccionTipoCaso(tipoCaso);
     }
-    public void crearCaso(String cuenta, String selectOrigenCaso, String prioridadCaso, String almacen, String asunto, String descripcion, String planesAccion, String estado){
+    public void crearCasoFelicitaciones(String cuenta, String selectOrigenCaso, String prioridadCaso, String almacen, String asunto, String descripcion, String planesAccion, String estado){
 
-        page.creaCasoPage().creacionCaso(cuenta, selectOrigenCaso, prioridadCaso, almacen, asunto, descripcion, planesAccion, estado);
+        page.creaCasoPage().creacionCasoFelicitaciones(cuenta, selectOrigenCaso, prioridadCaso, almacen, asunto, descripcion, planesAccion, estado);
 
     }
 
+    public void crearCasoInformacion(String cuenta, String selectOrigenCaso, String area, String prioridadCaso, String almacen, String asunto, String descripcion, String planesAccion, String estado){
+
+        page.creaCasoPage().creacionCasoInformacion(cuenta, selectOrigenCaso, area, prioridadCaso, almacen, asunto, descripcion, planesAccion, estado);
+
+    }
+
+    /*public void crearCasoPAK(String selectEstado){
+
+        page.creaCasoPage().crearCasoPak(selectEstado);
+    }*/
+
+    public void crearCasoQueja(String cuenta, String selectOrigenCaso, String prioridadCaso, String area, String clase, String almacen, String asunto, String descripcion, String planesAccion, String estado){
+
+        page.creaCasoPage().creacionCasoQueja(cuenta, selectOrigenCaso, prioridadCaso, area, clase, almacen, asunto, descripcion, planesAccion, estado);
+
+    }
 
 }

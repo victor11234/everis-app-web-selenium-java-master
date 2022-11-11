@@ -16,7 +16,7 @@ public class CreaCasoStepsDefinition {
         casoStep.despliegaMenu();
     }
 
-    @Y("^Entramos a nuevo caso, Seleccionamos el tipo de caso(.*)$")
+    @Y("^Entramos a nuevo caso, Seleccionamos el tipo de caso (.*)$")
     public void entramosANuevoCasoSeleccionamosElTipoDeCaso(String tipoCaso) {
         casoStep.seleccionaTipoCaso(tipoCaso);
     }
@@ -27,13 +27,44 @@ public class CreaCasoStepsDefinition {
 
         try {
             Thread.sleep(10000);
-            casoStep.crearCaso(cuenta, selectOrigenCaso, prioridadCaso, almacen, asunto, descripcion, planesAccion, estado);
+            casoStep.crearCasoFelicitaciones(cuenta, selectOrigenCaso, prioridadCaso, almacen, asunto, descripcion, planesAccion, estado);
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
+    }
 
+    @Y("^creamos un caso de informacion (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*)$")
+    public void creamosUnCasoDeInformacion(String cuenta,String selectOrigenCaso, String prioridadCaso, String area, String almacen, String asunto, String descripcion, String planesAccion, String estado) {
 
+        try {
+            Thread.sleep(10000);
+            casoStep.crearCasoInformacion(cuenta, selectOrigenCaso, prioridadCaso, area, almacen, asunto, descripcion, planesAccion, estado);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Y("^creamos un caso de Queja (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*)$")
+    public void creamosUnCasoDeQueja(String cuenta, String selectOrigenCaso, String prioridadCaso, String area, String clase, String almacen, String asunto, String descripcion, String planesAccion, String estado) {
+
+        try {
+            Thread.sleep(10000);
+            casoStep.crearCasoQueja(cuenta, selectOrigenCaso, prioridadCaso, area, clase, almacen, asunto, descripcion, planesAccion, estado);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 
 
+    /*@Y("^creamos un caso de PAK (.*)$")
+    public void creamosUnCasoDePAK(String selectEstado) {
+
+
+        try {
+            Thread.sleep(10000);
+            casoStep.crearCasoPAK(selectEstado);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }*/
 }
