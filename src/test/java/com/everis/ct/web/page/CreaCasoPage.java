@@ -129,6 +129,7 @@ public class CreaCasoPage extends WebBase {
 
         wait.until(ExpectedConditions.elementToBeClickable(campoBuscarCuenta));
         type(campoBuscarCuenta, cuenta);
+        general.primelaLetraDeCadaPalabra(cuenta);
         wait.until(ExpectedConditions.elementToBeClickable(clickCuenta));
         click(clickCuenta);
 
@@ -287,10 +288,7 @@ public class CreaCasoPage extends WebBase {
         type(campoDescripcionQueja, descripcion);
         type(campoPlanesQueja, planesAccion);
 
-        click(selectEstado);
-        general.tiempoEsperaFijo();
-        WebElement selectNinguno = find().getElementByXPath("//a[contains(text(),'--Ninguno--')]");
-        click(selectNinguno);
+
         click(selectEstado);
         general.tiempoEsperaFijo();
         WebElement selectEstado = find().getElementByXPath("//a[contains(text(),'"+estado+"')]");
