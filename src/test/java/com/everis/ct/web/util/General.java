@@ -13,7 +13,7 @@ import java.util.Date;
 
 public class General {
 
-private Faker faker = new Faker();
+    private Faker faker = new Faker();
 
     public General() {
     }
@@ -31,16 +31,16 @@ private Faker faker = new Faker();
         return faker.name().fullName();
     }
 
-    public void tiempoEsperaFijo(){
+    public void tiempoEsperaFijo() {
         try {
             Thread.sleep(3000);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.getMessage();
         }
     }
 
-    public String numeroAleatorio(){
-        return  String.valueOf((int) (Math.random() * 9999999 + 1));
+    public String numeroAleatorio() {
+        return String.valueOf((int) (Math.random() * 9999999 + 1));
     }
 
     public static Date getDifferenceBetwenDates(Date dateInicio, Date dateFinal) {
@@ -73,5 +73,42 @@ private Faker faker = new Faker();
         } catch (IOException e) {
             System.err.println(e);
         }
+    }
+
+    //Convierte la primera letra de una palabra en mayuscula
+    public String primeraLetraMayus(String valor) {
+
+
+        String palabra = valor.substring(0, 1).toUpperCase() + valor.substring(1).toLowerCase();
+        System.out.println(palabra);
+        return palabra;
+
+    }
+
+    //Convierte toda la palabra en mayuscula
+    public String todoMayus(String valor) {
+
+
+        String palabra = valor.toUpperCase();
+        System.out.println(palabra);
+        return palabra;
+
+    }
+
+    //Convierte la primera letra de cada pabra en mayuscula
+    public String primelaLetraDeCadaPalabra(String valor) {
+
+
+        char[] caracteres = valor.toCharArray();
+        caracteres[0] = Character.toUpperCase(caracteres[0]);
+        for (int i = 0; i < valor.length() - 2; i++) {
+
+            if (caracteres[i] == ' ' || caracteres[i] == '.' || caracteres[i] == ',')
+
+                caracteres[i + 1] = Character.toUpperCase(caracteres[i + 1]);
+
+
+        }System.out.println(caracteres);
+        return new String(caracteres);
     }
 }

@@ -14,7 +14,7 @@ Característica: Prueba de concepto SpringBoot + Cucumber - sandBox
 
     Ejemplos:
 
-      | Usuario                           | Clave        | CuentaUsuario  | nombre   | apellido | email | telefono | documento |
+      | Usuario                           | Clave        | CuentaUsuario  | nombre   | apellido | email            | telefono   | documento |
       | 1016091477@colcomercio.com.co.uat | Js101609     | 23124124       | dsadasd  | dsadsd   | prueba@gmail.com | 3106677777 | Cedula |
 
 
