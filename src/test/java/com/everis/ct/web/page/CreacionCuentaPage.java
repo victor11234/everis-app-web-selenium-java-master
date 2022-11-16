@@ -3,6 +3,7 @@ package com.everis.ct.web.page;
 import com.everis.ct.web.base.WebBase;
 import com.everis.ct.web.util.General;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -101,6 +102,7 @@ public class CreacionCuentaPage extends WebBase {
         general.tiempoEsperaFijo();
         click(botonSiguiente);
         general.tiempoEsperaFijo();
+
         //if (!find().getElementByXPath("//a[text()='Haga clic aquí para acceder a la Cuenta']").isEnabled()) {
             if (tipoCuenta.equalsIgnoreCase("Empresas")) {
                 wait.until(ExpectedConditions.elementToBeClickable(cuentaEmpresa));

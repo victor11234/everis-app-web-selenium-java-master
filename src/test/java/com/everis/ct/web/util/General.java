@@ -2,6 +2,15 @@ package com.everis.ct.web.util;
 
 import com.github.javafaker.Faker;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
+import java.util.Calendar;
+import java.util.Date;
+
 public class General {
 
     private Faker faker = new Faker();
@@ -34,6 +43,37 @@ public class General {
         return String.valueOf((int) (Math.random() * 9999999 + 1));
     }
 
+    public static Date getDifferenceBetwenDates(Date dateInicio, Date dateFinal) {
+        long milliseconds = dateFinal.getTime() - dateInicio.getTime();
+        int seconds = (int) (milliseconds / 1000) % 60;
+        int minutes = (int) ((milliseconds / (1000 * 60)) % 60);
+        int hours = (int) ((milliseconds / (1000 * 60 * 60)) % 24);
+        Calendar c = Calendar.getInstance();
+        c.set(Calendar.SECOND, seconds);
+        c.set(Calendar.MINUTE, minutes);
+        c.set(Calendar.HOUR_OF_DAY, hours);
+        return c.getTime();
+    }
+
+
+    public void creacionCarpetasReporte(String ruta){
+        File file=new File(ruta);
+        if(!file.exists()){
+            file.mkdirs();
+        }
+    }
+
+    public void movimientoDeArchivos(String desde, String hacia){
+
+        Path origenPath = FileSystems.getDefault().getPath(desde);
+        Path destinoPath = FileSystems.getDefault().getPath(hacia);
+
+        try {
+            Files.move(origenPath, destinoPath, StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            System.err.println(e);
+        }
+    }
 
     //Convierte la primera letra de una palabra en mayuscula
 
