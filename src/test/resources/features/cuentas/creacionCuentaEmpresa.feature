@@ -13,8 +13,8 @@ Característica: Prueba de concepto SpringBoot + Cucumber - sandBox
     Y Si la cuenta no existe realizamos la creacion de empresa <nombreCuenta> <identificacionEmpresa>
     Ejemplos:
 
-      | Usuario                          | Clave        | CuentaUsuario | nombreCuenta | identificacionEmpresa |
-      |1035922188@colcomercio.com.co.uat | Pruebas2023* | 1035922189    | dsadasd      | NIT                   |
+      | Usuario                                              | Clave        | CuentaUsuario | nombreCuenta | identificacionEmpresa |
+      |victor.manuel.lozano.cardona@colcomercio.com.co.alkqa | Pruebas2023* | 1035922189    | dsadasd      | NIT                   |
 
 
 

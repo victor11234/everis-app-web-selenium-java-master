@@ -36,21 +36,13 @@ public class General {
 
 
     //Convierte la primera letra de una palabra en mayuscula
-    public String primeraLetraMayus(String valor) {
 
-
-        String palabra = valor.substring(0, 1).toUpperCase() + valor.substring(1).toLowerCase();
-        System.out.println(palabra);
-        return palabra;
-
-    }
 
     //Convierte toda la palabra en mayuscula
     public String todoMayus(String valor) {
 
 
         String palabra = valor.toUpperCase();
-        System.out.println(palabra);
         return palabra;
 
     }
@@ -68,7 +60,7 @@ public class General {
                 caracteres[i + 1] = Character.toUpperCase(caracteres[i + 1]);
 
 
-        }System.out.println(caracteres);
+        }
         return new String(caracteres);
     }
 }

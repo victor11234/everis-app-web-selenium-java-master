@@ -26,6 +26,8 @@ public class Hooks {
 
     @Before(order = 0)
     public void setUp() {
+
+
         manager.setUpDriver();
     }
 

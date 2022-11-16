@@ -128,8 +128,8 @@ public class CreaCasoPage extends WebBase {
         var wait = webDriverWait(Duration.ofSeconds(10));
 
         wait.until(ExpectedConditions.elementToBeClickable(campoBuscarCuenta));
+        cuenta = general.primelaLetraDeCadaPalabra(cuenta);
         type(campoBuscarCuenta, cuenta);
-        general.primelaLetraDeCadaPalabra(cuenta);
         wait.until(ExpectedConditions.elementToBeClickable(clickCuenta));
         click(clickCuenta);
 
@@ -140,12 +140,14 @@ public class CreaCasoPage extends WebBase {
 
         click(selectOrigen);
         general.tiempoEsperaFijo();
+        selectOrigenCaso = general.primelaLetraDeCadaPalabra(selectOrigenCaso);
         WebElement origenCaso = find().getElementByXPath("//a[text()='"+selectOrigenCaso+"']");
         wait.until(ExpectedConditions.elementToBeClickable(origenCaso));
         click(origenCaso);
 
         click(selectPrioridad);
         general.tiempoEsperaFijo();
+        prioridadCaso = general.primelaLetraDeCadaPalabra(prioridadCaso);
         WebElement casoPrioridad = find().getElementByXPath("//a[text()='"+prioridadCaso+"']");
         wait.until(ExpectedConditions.elementToBeClickable(casoPrioridad));
         click(casoPrioridad);
@@ -158,8 +160,10 @@ public class CreaCasoPage extends WebBase {
         type(campoAsunto, asunto);
         type(campoDescripcion, descripcion);
         type(campoPlanes, planesAccion);
+
         click(selectEstado);
         general.tiempoEsperaFijo();
+        estado = general.primelaLetraDeCadaPalabra(estado);
         WebElement selectEstado = find().getElementByXPath("//a[contains(text(),'"+estado+"')]");
         wait.until(ExpectedConditions.elementToBeClickable(selectEstado));
         click(selectEstado);
