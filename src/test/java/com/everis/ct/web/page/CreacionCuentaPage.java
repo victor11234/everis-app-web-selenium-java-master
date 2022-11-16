@@ -48,7 +48,7 @@ public class CreacionCuentaPage extends WebBase {
     protected WebElement cuentaAliados;
 
     //Xpath Cuenta Empresa
-    @FindBy (xpath = "(//input[@name='_2'])[position()=1]")
+    @FindBy (xpath = "//div[@class='slds-form-element__control slds-grow']")
     protected WebElement campoNombreCuenta;
 
     @FindBy (xpath = "//button[text()='Crear Cuenta']")
@@ -66,10 +66,6 @@ public class CreacionCuentaPage extends WebBase {
 
     @FindBy (xpath = "//input[@name='PersonMobilePhone']")
     protected WebElement campoTelefono;
-
-    // Xpath Cuenta Aliados
-    @FindBy (xpath = "//input[@name='_0']")
-    protected WebElement campoNombreCuerntaA;
 
     protected General general = new General();
     public void listaDesplegable(){
@@ -165,8 +161,8 @@ public class CreacionCuentaPage extends WebBase {
         if (cuenta.equalsIgnoreCase("N/A"))
             cuenta= general.getRandomValue() + " S.A";
         var wait  = webDriverWait(Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(campoNombreCuerntaA));
-        type(campoNombreCuerntaA, cuenta);
+        wait.until(ExpectedConditions.elementToBeClickable(campoNombreCuenta));
+        type(campoNombreCuenta, cuenta);
         wait.until(ExpectedConditions.elementToBeClickable(botonCrearCuenta));
         click(botonCrearCuenta);
     }

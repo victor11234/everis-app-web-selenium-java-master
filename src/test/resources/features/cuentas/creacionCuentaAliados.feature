@@ -11,8 +11,8 @@ Característica: Prueba de concepto SpringBoot + Cucumber - sandBox
     Y Realizamos la busqueda de cuenta <cuentaUsuario> Aliados
     Y Si la cuenta no existe realizamos la creacion de aliados <cuenta>
     Ejemplos:
-      | Usuario                           | Clave        | cuentaUsuario  | cuenta       |
-      | 1016091477@colcomercio.com.co.uat | Js101609     | N/A     | N/A     |
+      | Usuario                                                  | Clave        | cuentaUsuario  | cuenta       |
+      | jefersonstiben.pedrazaecheverry@colcomercio.com.co.alkqa | Js101609     | 3123321        | Prueba Aliados    |
 
 
 
