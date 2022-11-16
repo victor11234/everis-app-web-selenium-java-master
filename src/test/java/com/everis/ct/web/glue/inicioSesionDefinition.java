@@ -3,9 +3,11 @@ package com.everis.ct.web.glue;
 import com.everis.ct.web.WebAutomationApplication;
 import com.everis.ct.web.lib.WebDriverManager;
 import com.everis.ct.web.step.InicioSesionStep;
+import com.everis.ct.web.util.General;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
+import io.cucumber.java.zh_cn.假如;
 import io.cucumber.spring.CucumberContextConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -24,13 +26,14 @@ public class inicioSesionDefinition {
     @Autowired
     private InicioSesionStep inicioSesionStep;
 
-
+    General general = new General();
     @Dado("que ingresamos a la pagina de Salesforce")
     public void queIngresamosALaPaginaDeSalesforce() {
         /*General g = new General();
         System.out.println(g.firstName());
         System.out.println(g.lastName());
         System.out.println(g.getRandomValue());*/
+        general.obtenerHoraInicial();
         webDriverManager.navigateTo(urlSaleforce);
     }
 

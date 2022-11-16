@@ -11,6 +11,8 @@ Característica: Prueba de concepto SpringBoot + Cucumber - sandBox
     Y en la lista desplegable seleccionamos la opcion cuentas
     Y Realizamos la busqueda de cuenta <CuentaUsuario> Empresas
     Y Si la cuenta no existe realizamos la creacion de empresa <nombreCuenta> <identificacionEmpresa>
+    Entonces hacemos la generacion del reporte con su indicador CreacionCuentaEmpresa
+
     Ejemplos:
 
       | Usuario                                              | Clave        | CuentaUsuario | nombreCuenta | identificacionEmpresa |

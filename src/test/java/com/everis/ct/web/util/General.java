@@ -1,19 +1,33 @@
 package com.everis.ct.web.util;
 
 import com.github.javafaker.Faker;
+import org.apache.poi.ss.usermodel.*;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 public class General {
 
     private Faker faker = new Faker();
+    DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+    DateFormat dateFormatCompleto = new SimpleDateFormat("dd:MM:yy HH:mm:ss");
+    DateFormat dateFormatHoy = new SimpleDateFormat("dd/MM/yy");
+    Date dateInicial;
+    Date dateFinal;
+    Date fechaHoy;
+    Date difference;
+
+    String rutaFechaReporte="";
 
     public General() {
     }
@@ -102,5 +116,108 @@ public class General {
 
         }
         return new String(caracteres);
+    }
+    public void obtenerHoraInicial() {
+        dateInicial = new Date();
+        System.out.println("Hora inicial: " + dateFormat.format(dateInicial));
+    }
+    public void obtenerHoraFinal() {
+        dateFinal = new Date();
+        System.out.println("Hora final: " + dateFormat.format(dateFinal));
+    }
+    public void procesoReporte() {
+
+        //Proceso de hora
+        difference = getDifferenceBetwenDates(dateInicial,dateFinal);
+        System.out.println(dateFormat.format(difference)); //00:02:00
+
+        //Proceso de creación de carpeta general
+        creacionCarpetasReporte(System.getProperty("user.dir") + "//reportes//indicadores");
+        //Proceso de creación de carpeta hora y ejecucion
+        rutaFechaReporte = System.getProperty("user.dir") + "//reportes//indicadores//"+dateFormatCompleto.format(dateInicial).replaceAll(":",".").replaceAll(" ","_");
+
+        creacionCarpetasReporte(rutaFechaReporte);
+
+    }
+
+    public  void modificacionCeldas(String feature) {
+        try {
+            String directorioExcel = System.getProperty("user.dir") + "\\Indicadores.xlsx";
+            // Se crea una referencia al documento excel
+            File archivo = new File(directorioExcel);
+            FileInputStream file = new FileInputStream(archivo);
+            Workbook workbook = WorkbookFactory.create(file);
+            workbook.setMissingCellPolicy(Row.MissingCellPolicy.CREATE_NULL_AS_BLANK);
+            Sheet sheet = workbook.getSheet(feature);
+            Cell cell;
+            Row row;
+            int numeroCeldaEscribir=0;
+            int rowCount = sheet.getLastRowNum()+ sheet.getFirstRowNum();
+            for (int i = 0; i < rowCount; i++) {
+                row = sheet.getRow(i);
+                if (row != null) {
+                    System.out.println(row.getCell(0).getStringCellValue());
+                    if(row.getCell(0).getStringCellValue().isEmpty()){
+                        numeroCeldaEscribir=i;
+                        break;
+                    }
+                }
+            }
+
+
+            row = sheet.getRow(numeroCeldaEscribir);
+            //campo feature
+            cell = row.getCell(0);
+            if (cell == null) {
+                cell = row.getCell(0);
+            }
+            if (feature != null) {
+                cell.setCellValue(feature);
+            }
+
+            cell = row.getCell(1);
+            if (cell == null) {
+                cell = row.getCell(1);
+            }
+            fechaHoy = new Date();
+            if (fechaHoy != null) {
+                cell.setCellValue(dateFormatHoy.format(fechaHoy).toString());
+            }
+
+            //campo Tiempo
+            cell = row.getCell(2);
+            if (cell == null) {
+                cell = row.createCell(2);
+            }
+            if (difference != null) {
+                cell.setCellValue(dateFormat.format(difference).toString());
+            }
+
+            //campo resultado
+            cell = row.getCell(3);
+            if (cell == null) {
+                cell = row.createCell(3);
+            }
+           // if (feature != null) {
+                cell.setCellValue("Succes");
+            //}
+
+            //campo ruta
+            cell = row.getCell(4);
+            if (cell == null) {
+                cell = row.createCell(4);
+            }
+            if (rutaFechaReporte != null) {
+                cell.setCellValue(rutaFechaReporte);
+            }
+
+            FileOutputStream outputStream = new FileOutputStream(directorioExcel);
+            workbook.setForceFormulaRecalculation(true);
+            workbook.write(outputStream);
+            workbook.close();
+            outputStream.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

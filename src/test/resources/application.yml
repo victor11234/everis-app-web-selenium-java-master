@@ -17,7 +17,6 @@ webdriver:
     # Si tienes configurado la variable $PATH del sistema con los drivers no es necesario colocar esta propiedad
   #path: C:\Testing\web\everis-app-web-selenium-java-master\drivers\win\chromedriver.exe
   path: C:\Users\jpedraze\IdeaProjects\everis-app-web-selenium-java-master\chromedriver.exe
-
   #path: C:\Users\jpedraze\IdeaProjects\everis-app-web-selenium-java-master\chromedriver.exe
  # path: C:\Alkosto\everis-app-web-selenium-java-master\drivers\win\chromedriver.exe
 

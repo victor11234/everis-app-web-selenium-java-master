@@ -4,9 +4,15 @@ import com.everis.ct.web.lib.WebDriverManager;
 import com.everis.ct.web.service.stepdefinition.ManageScenario;
 import com.everis.ct.web.util.General;
 import io.cucumber.java.*;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
 import java.text.DateFormat;
@@ -39,8 +45,7 @@ public class Hooks {
 
     @Before(order = 0)
     public void setUp() {
-
-
+       // modificacionCeldas("CreacionCuentaEmpresa","29/11/2022","12:10:20","succes");
         manager.setUpDriver();
     }
 
@@ -49,11 +54,7 @@ public class Hooks {
         this.scenario.setScenario(scenario);
     }
 
-    @Before(order = 2)
-    public void timeInitial() {
-        dateInicial = new Date();
-        System.out.println("Hora actual: " + dateFormat.format(dateInicial));
-    }
+
 
     @After(order = 0)
     public void afterScenario() {
@@ -64,39 +65,9 @@ public class Hooks {
     @After(order = 1)
     public void tearDown() {
         scenario.shotWhenFail();
-    }
-
-    @After(order = 2)
-    public void processReport() {
-      /*
-        //Proceso de hora
-        dateFinal = new Date();
-        System.out.println("Hora actual: " + dateFormat.format(dateFinal));
-        Date difference = general.getDifferenceBetwenDates(dateInicial,dateFinal);
-        System.out.println(dateFormat.format(difference)); //00:02:00
-        try {
-            Thread.sleep(180000);
-        }catch (Exception e){
-            e.getMessage();
-        }
-        //Proceso de creación de carpeta general
-        general.creacionCarpetasReporte(System.getProperty("user.dir") + "//reportes//indicadores");
-        //Proceso de creación de carpeta hora y ejecucion
-        String rutaFechaReporte = System.getProperty("user.dir") + "//reportes//indicadores//"+dateFormatCompleto.format(dateInicial).replaceAll(":",".").replaceAll(" ","_");
-        general.creacionCarpetasReporte(rutaFechaReporte);
-        try {
-            File file =new File(System.getProperty("user.dir")+"\\target\\cucumber\\site\\cucumber-html-reports");
-            if (file.exists()){
-                System.out.println("El archivo cucumber existe");
-            }else{
-                System.out.println("El archivo no cucumber existe");
-            }
-        }catch (Exception e){
-            e.getMessage();
-        }
-        //Proceso de movimiento de reportes
-        general.movimientoDeArchivos(System.getProperty("user.dir")+"\\target\\cucumber\\site\\cucumber-html-reports",rutaFechaReporte);
-*/
+        /*general.obtenerHoraFinal();
+        general.procesoReporte();
+        general.modificacionCeldas("CreacionCuentaEmpresa");*/
     }
 
 }
