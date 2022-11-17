@@ -3,7 +3,7 @@ Característica: Prueba de concepto SpringBoot + Cucumber - sandBox
 
   @CreacionCuentaAliados
 
-  Esquema del escenario: Creacion de cuenta
+  Esquema del escenario:CreacionCuentaAliados
     Dado que ingresamos a la pagina de Salesforce
     Y iniciamos sesion <Usuario> <Clave>
     Y hacemos proceso de seleccion Cliente

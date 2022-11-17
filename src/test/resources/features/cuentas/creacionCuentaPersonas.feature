@@ -3,7 +3,7 @@ Característica: Prueba de concepto SpringBoot + Cucumber - sandBox
 
   @CreacionCuentaPersonas
 
-  Esquema del escenario: Creacion de cuenta
+  Esquema del escenario:CreacionCuentaPersonas
 
     Dado que ingresamos a la pagina de Salesforce
     Y iniciamos sesion <Usuario> <Clave>
