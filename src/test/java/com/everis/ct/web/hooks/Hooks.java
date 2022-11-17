@@ -38,10 +38,7 @@ public class Hooks {
     }
 
     General general = new General();
-    DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
-    DateFormat dateFormatCompleto = new SimpleDateFormat("dd:MM:yy HH:mm:ss");
-    Date dateInicial;
-    Date dateFinal;
+
 
     @Before(order = 0)
     public void setUp() {
@@ -58,16 +55,17 @@ public class Hooks {
 
     @After(order = 0)
     public void afterScenario() {
-
         manager.quitDriver();
     }
 
     @After(order = 1)
     public void tearDown() {
+        System.out.println(this.scenario.getScenario().getStatus().toString());
+        System.out.println(scenario.getScenario().getName());
         scenario.shotWhenFail();
-        /*general.obtenerHoraFinal();
+        general.obtenerHoraFinal();
         general.procesoReporte();
-        general.modificacionCeldas("CreacionCuentaEmpresa");*/
+        general.modificacionCeldas(scenario.getScenario().getName().toString(),this.scenario.getScenario().getStatus().toString());
     }
 
 }

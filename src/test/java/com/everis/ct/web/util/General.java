@@ -19,6 +19,7 @@ import java.util.Date;
 public class General {
 
     private Faker faker = new Faker();
+    Utilidad utilidad;
     DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
     DateFormat dateFormatCompleto = new SimpleDateFormat("dd:MM:yy HH:mm:ss");
     DateFormat dateFormatHoy = new SimpleDateFormat("dd/MM/yy");
@@ -118,29 +119,33 @@ public class General {
         return new String(caracteres);
     }
     public void obtenerHoraInicial() {
+
         dateInicial = new Date();
         System.out.println("Hora inicial: " + dateFormat.format(dateInicial));
+        utilidad.dateInicial=dateInicial;
     }
     public void obtenerHoraFinal() {
         dateFinal = new Date();
         System.out.println("Hora final: " + dateFormat.format(dateFinal));
+        utilidad.dateFinal=dateFinal;
     }
     public void procesoReporte() {
 
+        System.out.println(dateFormat.format(utilidad.dateInicial)); //00:02:00
+        System.out.println(dateFormat.format(utilidad.dateFinal)); //00:02:00
         //Proceso de hora
-        difference = getDifferenceBetwenDates(dateInicial,dateFinal);
-        System.out.println(dateFormat.format(difference)); //00:02:00
+        utilidad.difference = getDifferenceBetwenDates(utilidad.dateInicial,utilidad.dateFinal);
 
         //Proceso de creación de carpeta general
         creacionCarpetasReporte(System.getProperty("user.dir") + "//reportes//indicadores");
         //Proceso de creación de carpeta hora y ejecucion
-        rutaFechaReporte = System.getProperty("user.dir") + "//reportes//indicadores//"+dateFormatCompleto.format(dateInicial).replaceAll(":",".").replaceAll(" ","_");
+        rutaFechaReporte = System.getProperty("user.dir") + "\\reportes\\indicadores\\"+dateFormatCompleto.format(utilidad.dateInicial).replaceAll(":",".").replaceAll(" ","_");
 
         creacionCarpetasReporte(rutaFechaReporte);
 
     }
 
-    public  void modificacionCeldas(String feature) {
+    public  void modificacionCeldas(String feature,String resultado) {
         try {
             String directorioExcel = System.getProperty("user.dir") + "\\Indicadores.xlsx";
             // Se crea una referencia al documento excel
@@ -189,8 +194,8 @@ public class General {
             if (cell == null) {
                 cell = row.createCell(2);
             }
-            if (difference != null) {
-                cell.setCellValue(dateFormat.format(difference).toString());
+            if (utilidad.difference != null) {
+                cell.setCellValue(dateFormat.format(utilidad.difference).toString());
             }
 
             //campo resultado
@@ -199,7 +204,7 @@ public class General {
                 cell = row.createCell(3);
             }
            // if (feature != null) {
-                cell.setCellValue("Succes");
+                cell.setCellValue(resultado);
             //}
 
             //campo ruta
@@ -220,4 +225,5 @@ public class General {
             System.out.println(e.getMessage());
         }
     }
+
 }

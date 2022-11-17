@@ -3,7 +3,7 @@ Característica: Prueba de concepto SpringBoot + Cucumber - sandBox
 
   @CreacionCuentaEmpresa
 
-  Esquema del escenario: Creacion de cuenta
+  Esquema del escenario:CreacionCuentaEmpresa
 
     Dado que ingresamos a la pagina de Salesforce
     Y iniciamos sesion <Usuario> <Clave>
@@ -11,7 +11,6 @@ Característica: Prueba de concepto SpringBoot + Cucumber - sandBox
     Y en la lista desplegable seleccionamos la opcion cuentas
     Y Realizamos la busqueda de cuenta <CuentaUsuario> Empresas
     Y Si la cuenta no existe realizamos la creacion de empresa <nombreCuenta> <identificacionEmpresa>
-    Entonces hacemos la generacion del reporte con su indicador CreacionCuentaEmpresa
 
     Ejemplos:
 
