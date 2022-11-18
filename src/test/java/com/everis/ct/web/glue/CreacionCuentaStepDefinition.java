@@ -1,6 +1,7 @@
 package com.everis.ct.web.glue;
 
 import com.everis.ct.web.step.CreacionCuentaStep;
+import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -37,5 +38,11 @@ public class CreacionCuentaStepDefinition {
     public void siLaCuentaNoExisteRealizamosLaCreacionDeAliados(String cuenta) {
 
         casoStep.crarCuentaAliados(cuenta);
+    }
+
+    @Entonces("verficamos que la cuenta está creada")
+    public void verficamosQueLaCuentaEstáCreada() {
+
+        casoStep.verificacuenta();
     }
 }

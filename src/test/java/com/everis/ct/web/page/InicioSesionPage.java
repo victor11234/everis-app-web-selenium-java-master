@@ -1,6 +1,8 @@
 package com.everis.ct.web.page;
 
 import com.everis.ct.web.base.WebBase;
+import com.everis.ct.web.service.aspect.evidence.ScreenShotAfter;
+import com.everis.ct.web.service.aspect.evidence.ScreenShotBefore;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -25,7 +27,8 @@ public class InicioSesionPage extends WebBase {
     protected WebElement atencionAlCliente;
 
 
-
+    @ScreenShotBefore
+    @ScreenShotAfter
     public void iniciamosSesion(String user, String pass) {
 
         var wait = webDriverWait(Duration.ofSeconds(10));
@@ -36,7 +39,7 @@ public class InicioSesionPage extends WebBase {
 
 
     }
-
+    @ScreenShotAfter
     public void verificamosElLogueoExitoso() {
         var wait = webDriverWait(Duration.ofSeconds(30));
         wait.until(ExpectedConditions.elementToBeClickable(atencionAlCliente));

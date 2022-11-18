@@ -2,6 +2,9 @@ package com.everis.ct.web.util;
 
 import com.github.javafaker.Faker;
 import org.apache.poi.ss.usermodel.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,6 +16,7 @@ import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -224,6 +228,19 @@ public class General {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public boolean verificarSiExisteObjeto(WebDriver driver, String xpath){
+        boolean bandera = true;
+        try {
+
+            driver.findElement(By.xpath(xpath)).isEnabled();
+        }catch (Exception e){
+
+            bandera= false;
+
+        }
+        return bandera;
     }
 
 }

@@ -2,9 +2,11 @@ package com.everis.ct.web.page;
 
 import com.everis.ct.web.base.WebBase;
 import com.everis.ct.web.util.General;
+import com.everis.ct.web.util.Utilidad;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -34,7 +36,7 @@ public class CreacionCuentaPage extends WebBase {
     @FindBy (xpath = "//input[@name='Numero_de_Identificacion_screen']")
     protected WebElement campoCuenta;
 
-    @FindBy (xpath = "//button[text()='Siguiente']")
+    @FindBy (xpath = "//div[@class= 'actionsRight slds-grid']")
     protected WebElement botonSiguiente;
 
 
@@ -67,6 +69,8 @@ public class CreacionCuentaPage extends WebBase {
     @FindBy (xpath = "//input[@name='PersonMobilePhone']")
     protected WebElement campoTelefono;
 
+    @FindBy (xpath = "//a[text()='Haga clic aquí para acceder a la Cuenta']")
+    protected WebElement verificaCuenta;
     protected General general = new General();
     public void listaDesplegable(){
         general.tiempoEsperaFijo();
@@ -90,16 +94,20 @@ public class CreacionCuentaPage extends WebBase {
         driver().switchTo().frame(iframe);
         wait.until(ExpectedConditions.elementToBeClickable(campoCuenta));
         type(campoCuenta, cuenta);
-        general.tiempoEsperaFijo();
         // wait.until(ExpectedConditions.elementToBeClickable(iframe));
         //driver().switchTo().frame(iframe);
-        wait.until(ExpectedConditions.elementToBeClickable(botonSiguiente));
         click(botonSiguiente);
-        general.tiempoEsperaFijo();
         click(botonSiguiente);
-        general.tiempoEsperaFijo();
+       // general.tiempoEsperaFijo();
+        //actions().click(botonSiguiente).perform();
 
-        //if (!find().getElementByXPath("//a[text()='Haga clic aquí para acceder a la Cuenta']").isEnabled()) {
+        //if (!general.verificarSiExisteObjeto(driver(), "//a[text()='Haga clic aquí para acceder a la Cuenta']")&& !general.verificarSiExisteObjeto(driver(), "//span[text()='Empresa']")){
+
+          //  click(botonSiguiente);
+
+       // }
+
+        if (!general.verificarSiExisteObjeto(driver(), "//a[text()='Haga clic aquí para acceder a la Cuenta']")) {
             if (tipoCuenta.equalsIgnoreCase("Empresas")) {
                 wait.until(ExpectedConditions.elementToBeClickable(cuentaEmpresa));
                 click(cuentaEmpresa);
@@ -113,9 +121,9 @@ public class CreacionCuentaPage extends WebBase {
             general.tiempoEsperaFijo();
             wait.until(ExpectedConditions.elementToBeClickable(botonSiguiente));
             click(botonSiguiente);
-        /*}else {
+        }else {
             Assert.fail("El número de cuenta indicado ya se encuentra creado");
-        }*/
+        }
     }
 
     public void crearCuentaEmpresa(String nombreCuenta, String identificacionEmpresa){
@@ -165,6 +173,13 @@ public class CreacionCuentaPage extends WebBase {
         type(campoNombreCuenta, cuenta);
         wait.until(ExpectedConditions.elementToBeClickable(botonCrearCuenta));
         click(botonCrearCuenta);
+    }
+
+    public void verificarCuenta(){
+
+        var wait  = webDriverWait(Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(verificaCuenta));
+        click(verificaCuenta);
     }
 
 }

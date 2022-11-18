@@ -18,6 +18,8 @@ webdriver:
   #path: C:\Testing\web\everis-app-web-selenium-java-master\drivers\win\chromedriver.exe
   #path: C:\Users\jpedraze\IdeaProjects\everis-app-web-selenium-java-master\chromedriver.exe
   path: C:\Alkosto\everis-app-web-selenium-java-master\drivers\win\chromedriver.exe
+  implicitWaitOnSeconds: 3
+
 
 ###########################################################################
 ### To use JDBC configuration, comment 'autoconfigure.exclude' property ###
