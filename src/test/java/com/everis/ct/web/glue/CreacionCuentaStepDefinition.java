@@ -15,9 +15,15 @@ public class CreacionCuentaStepDefinition {
         casoStep.seleccionaOpcionListaDesplegable();
     }
 
-    @Y("^Realizamos la busqueda de cuenta (.*) (.*)$")
-    public void realizamosLaBusquedaDeCuenta(String cuentaUsuario, String tipoCuenta){
-        casoStep.busquedaCuenta(cuentaUsuario, tipoCuenta);
+    @Y("^ingresamos la cuenta (.*)$")
+    public void ingresamosLaCuenta(String cuentaUsuario) {
+
+        casoStep.ingresarCuenta(cuentaUsuario);
+    }
+
+    @Y("^Realizamos la busqueda de cuenta (.*)$")
+    public void realizamosLaBusquedaDeCuenta(String tipoCuenta) {
+        casoStep.busquedaCuenta(tipoCuenta);
     }
 
 
@@ -45,4 +51,6 @@ public class CreacionCuentaStepDefinition {
 
         casoStep.verificacuenta();
     }
+
+
 }

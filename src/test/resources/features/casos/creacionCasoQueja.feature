@@ -7,7 +7,8 @@ Característica: Prueba de concepto SpringBoot + Cucumber - sandBox
   Esquema del escenario: Creacion de caso
 
     Dado que ingresamos a la pagina de Salesforce
-    Y iniciamos sesion <Usuario> <clave>
+    Y ingresamos los datos de inicio de sesion <usuario> <clave>
+    Y iniciamos sesion
     Y hacemos proceso de seleccion Cliente
     Y Desplegamos el menu de busqueda
     Y Entramos a nuevo caso, Seleccionamos el tipo de caso Queja
@@ -18,7 +19,7 @@ Característica: Prueba de concepto SpringBoot + Cucumber - sandBox
 
     Ejemplos:
 
-      | Usuario                           | clave        | selectOrigenCaso|  cuenta       |   prioridadCaso | area     | clase      | almacen | asunto |descripcion | planesDeAccion | estado |
+      | usuario                           | clave        | selectOrigenCaso|  cuenta       |   prioridadCaso | area     | clase      | almacen | asunto |descripcion | planesDeAccion | estado |
       | 1035922188@colcomercio.com.co.uat | Pruebas2023* |    Teléfono     | dsadas        |    Media         | POSVENTA | DETERIORADO| 68      | dasda  | sdasd      |  ewqeqwew     | Nuevo  |
 
 

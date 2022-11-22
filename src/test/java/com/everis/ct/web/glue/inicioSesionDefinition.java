@@ -37,9 +37,15 @@ public class inicioSesionDefinition {
         webDriverManager.navigateTo(urlSaleforce);
     }
 
-    @Y("^iniciamos sesion (.*) (.*)$")
-    public void iniciamosSesionUsuarioClave(String usuario, String clave) {
-        inicioSesionStep.iniciamosSesion(usuario, clave);
+    @Y("ingresamos los datos de inicio de sesion (.*) (.*)$")
+    public void ingresamosLosDatosDeInicioDeSesion(String usuario, String clave) {
+
+        inicioSesionStep.ingresarDatosSesion(usuario, clave);
+    }
+
+    @Y("iniciamos sesion")
+    public void iniciamosSesionUsuarioClave() {
+        inicioSesionStep.iniciamosSesion();
     }
 
     @Entonces("verificamos el logueo exitoso")

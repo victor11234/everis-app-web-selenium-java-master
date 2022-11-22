@@ -19,9 +19,14 @@ public class CreacionCuentaStep {
     }
 
     @ScreenShotAfter
-    public void busquedaCuenta(String cuenta, String tipoCuenta){
+    public void ingresarCuenta(String cuenta){
 
-        page.creacionCuenta().busquedaCuenta(cuenta, tipoCuenta);
+        page.creacionCuenta().ingresarCuenta(cuenta);
+    }
+    @ScreenShotAfter
+    public void busquedaCuenta(String tipoCuenta){
+
+        page.creacionCuenta().busquedaCuenta(tipoCuenta);
     }
 
     @ScreenShotAfter

@@ -84,7 +84,8 @@ public class CreacionCuentaPage extends WebBase {
         click(botonCuentas);
     }
 
-    public void busquedaCuenta(String cuenta, String tipoCuenta){
+    public void ingresarCuenta(String cuenta){
+
         if (cuenta.equalsIgnoreCase("N/A"))
             cuenta="1"+general.numeroAleatorio();
         var wait  = webDriverWait(Duration.ofSeconds(20));
@@ -94,6 +95,10 @@ public class CreacionCuentaPage extends WebBase {
         driver().switchTo().frame(iframe);
         wait.until(ExpectedConditions.elementToBeClickable(campoCuenta));
         type(campoCuenta, cuenta);
+
+    }
+    public void busquedaCuenta(String tipoCuenta){
+        var wait  = webDriverWait(Duration.ofSeconds(20));
         // wait.until(ExpectedConditions.elementToBeClickable(iframe));
         //driver().switchTo().frame(iframe);
         click(botonSiguiente);

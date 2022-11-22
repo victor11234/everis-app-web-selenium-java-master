@@ -5,10 +5,12 @@ Característica: Prueba de concepto SpringBoot + Cucumber - sandBox
 
   Esquema del escenario:CreacionCuentaAliados
     Dado que ingresamos a la pagina de Salesforce
-    Y iniciamos sesion <Usuario> <Clave>
+    Y ingresamos los datos de inicio de sesion <Usuario> <Clave>
+    Y iniciamos sesion
     Y hacemos proceso de seleccion Cliente
     Y en la lista desplegable seleccionamos la opcion cuentas
-    Y Realizamos la busqueda de cuenta <cuentaUsuario> Aliados
+    Y ingresamos la cuenta <cuentaUsuario>
+    Y Realizamos la busqueda de cuenta Aliados
     Y Si la cuenta no existe realizamos la creacion de aliados <cuenta>
     Entonces verficamos que la cuenta está creada
 

@@ -156,6 +156,10 @@ public class General {
             File archivo = new File(directorioExcel);
             FileInputStream file = new FileInputStream(archivo);
             Workbook workbook = WorkbookFactory.create(file);
+            CreationHelper createHelperFecha = workbook.getCreationHelper();
+            CreationHelper createHelperHora = workbook.getCreationHelper();
+            CellStyle cellStyleFecha = workbook.createCellStyle();
+            CellStyle cellStyleHora = workbook.createCellStyle();
             workbook.setMissingCellPolicy(Row.MissingCellPolicy.CREATE_NULL_AS_BLANK);
             Sheet sheet = workbook.getSheet(feature);
             Cell cell;
@@ -183,23 +187,32 @@ public class General {
             if (feature != null) {
                 cell.setCellValue(feature);
             }
-
+            cellStyleFecha.setDataFormat(
+                    createHelperFecha.createDataFormat().getFormat("d/m/yy"));
             cell = row.getCell(1);
             if (cell == null) {
                 cell = row.getCell(1);
             }
             fechaHoy = new Date();
             if (fechaHoy != null) {
-                cell.setCellValue(dateFormatHoy.format(fechaHoy).toString());
-            }
 
+                //cell.setCellValue(dateFormatHoy.format(fechaHoy));
+                cell.setCellValue(fechaHoy);
+
+                cell.setCellStyle(cellStyleFecha);
+            }
+            cellStyleHora.setDataFormat(
+                    createHelperHora.createDataFormat().getFormat("h:mm:ss"));
             //campo Tiempo
             cell = row.getCell(2);
             if (cell == null) {
                 cell = row.createCell(2);
             }
             if (utilidad.difference != null) {
-                cell.setCellValue(dateFormat.format(utilidad.difference).toString());
+
+               // cell.setCellValue(dateFormat.format(utilidad.difference));
+                cell.setCellValue(utilidad.difference);
+                cell.setCellStyle(cellStyleHora);
             }
 
             //campo resultado

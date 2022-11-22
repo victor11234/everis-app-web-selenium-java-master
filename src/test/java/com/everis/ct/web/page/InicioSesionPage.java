@@ -27,19 +27,21 @@ public class InicioSesionPage extends WebBase {
     protected WebElement atencionAlCliente;
 
 
-    @ScreenShotBefore
-    @ScreenShotAfter
-    public void iniciamosSesion(String user, String pass) {
 
+
+    public void ingresarDatosSesion(String user, String pass){
         var wait = webDriverWait(Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(userName));
         type(userName, user);
         type(password, pass);
+    }
+    public void iniciamosSesion() {
+
         click(buttonLogin);
 
 
     }
-    @ScreenShotAfter
+
     public void verificamosElLogueoExitoso() {
         var wait = webDriverWait(Duration.ofSeconds(30));
         wait.until(ExpectedConditions.elementToBeClickable(atencionAlCliente));
