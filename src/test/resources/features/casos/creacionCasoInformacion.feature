@@ -13,14 +13,15 @@ Característica: Prueba de concepto SpringBoot + Cucumber - sandBox
     Y Desplegamos el menu de busqueda
     Y Entramos a nuevo caso, Seleccionamos el tipo de caso Informacion
     Y creamos un caso de informacion <cuenta> <selectOrigenCaso> <prioridadCaso> <area> <almacen> <asunto> <descripcion> <planesDeAccion> <estado>
+    Entonces verificamos el caso creado
 
 
 
 
     Ejemplos:
 
-      | usuario                           | clave        | selectOrigenCaso|  cuenta       |   prioridadCaso | area      | almacen | asunto |descripcion | planesDeAccion | estado |
-      | 1035922188@colcomercio.com.co.uat | Pruebas2023* |    Teléfono     | dsadas        |    Alta         | POSVENTA  | 68      | dasda  | sdasd      |  ewqeqwew      | Nuevo  |
+      | usuario                                               | clave        | selectOrigenCaso|  cuenta       |   prioridadCaso | area      | almacen | asunto |descripcion | planesDeAccion | estado |
+      | victor.manuel.lozano.cardona@colcomercio.com.co.alkqa | Pruebas2023* |    Teléfono     | dsadas        |    Alta         | POSVENTA  | 68      | dasda  | sdasd      |  ewqeqwew      | Nuevo  |
 
 
 

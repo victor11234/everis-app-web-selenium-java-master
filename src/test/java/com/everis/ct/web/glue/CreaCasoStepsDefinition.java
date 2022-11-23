@@ -1,6 +1,7 @@
 package com.everis.ct.web.glue;
 
 import com.everis.ct.web.step.CreaCasoStep;
+import io.cucumber.java.es.Entonces;
 import io.cucumber.java.es.Y;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -55,16 +56,22 @@ public class CreaCasoStepsDefinition {
         }
     }
 
-
-    /*@Y("^creamos un caso de PAK (.*)$")
-    public void creamosUnCasoDePAK(String selectEstado) {
-
+    @Y("^creamos un caso de solicitud (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*) (.*)$")
+    public void creamosCasoSolicitud(String cuenta,String selectOrigenCaso, String prioridadCaso, String area, String clase, String almacen, String asunto, String descripcion, String planesAccion, String estado) {
 
         try {
             Thread.sleep(10000);
-            casoStep.crearCasoPAK(selectEstado);
+            casoStep.crearCasoSolicitud(cuenta, selectOrigenCaso, prioridadCaso, area, clase, almacen, asunto, descripcion, planesAccion, estado);
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
-    }*/
+
+
+    }
+
+    @Entonces("verificamos el caso creado")
+    public void verificamosElCasoCreado() {
+
+        casoStep.verifcaCasoCreado();
+    }
 }

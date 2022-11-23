@@ -1,8 +1,8 @@
 package com.everis.ct.web.step;
 
 import com.everis.ct.web.page.StepPages;
-import com.everis.ct.web.service.aspect.evidence.ScreenShot;
 import com.everis.ct.web.service.aspect.evidence.ScreenShotAfter;
+import com.everis.ct.web.service.aspect.evidence.ScreenShotBefore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -19,7 +19,7 @@ public class CreaCasoStep {
         page.creaCasoPage().listaDesplegable();
     }
 
-    @ScreenShotAfter
+    @ScreenShotBefore
     public void seleccionaTipoCaso(String tipoCaso){
 
        page.creaCasoPage().seleccionTipoCaso(tipoCaso);
@@ -39,16 +39,23 @@ public class CreaCasoStep {
 
     }
 
-    /*public void crearCasoPAK(String selectEstado){
-
-        page.creaCasoPage().crearCasoPak(selectEstado);
-    }*/
-
     @ScreenShotAfter
     public void crearCasoQueja(String cuenta, String selectOrigenCaso, String prioridadCaso, String area, String clase, String almacen, String asunto, String descripcion, String planesAccion, String estado){
 
         page.creaCasoPage().creacionCasoQueja(cuenta, selectOrigenCaso, prioridadCaso, area, clase, almacen, asunto, descripcion, planesAccion, estado);
 
+    }
+
+    @ScreenShotAfter
+    public void crearCasoSolicitud(String cuenta, String selectOrigenCaso, String prioridadCaso, String area, String clase, String almacen, String asunto, String descripcion, String planesAccion, String estado){
+
+        page.creaCasoPage().creacionCasoSolicitud(cuenta, selectOrigenCaso, prioridadCaso, area, clase, almacen, asunto, descripcion, planesAccion, estado);
+
+    }
+    @ScreenShotAfter
+    public void verifcaCasoCreado(){
+
+        page.creaCasoPage().verifcarCasoCreado();
     }
 
 }

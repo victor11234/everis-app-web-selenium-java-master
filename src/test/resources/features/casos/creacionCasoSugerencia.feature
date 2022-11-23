@@ -17,6 +17,7 @@ Característica: Prueba de concepto SpringBoot + Cucumber - sandBox
 
 
 
+
     Ejemplos:
 
       | usuario                                               | clave        | cuenta            |   selectOrigenCaso     |   prioridadCaso | almacen | asunto |descripcion | planesDeAccion | estado |
