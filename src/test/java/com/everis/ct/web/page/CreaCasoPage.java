@@ -35,6 +35,8 @@ public class CreaCasoPage extends WebBase {
 
     @FindBy (xpath = "//span[contains(text(),'SOLICITUD')]")
     protected WebElement checkTipoCasoSolicitud;
+    @FindBy (xpath = "//span[contains(text(),'SUGERENCIA')]")
+    protected WebElement checkTipoCasoSugerencia;
 
     @FindBy (xpath = "//span[text()='Siguiente']")
     protected WebElement buttonSiguiente;
@@ -55,7 +57,7 @@ public class CreaCasoPage extends WebBase {
     @FindBy (xpath = "//a[text()='Baja']")
     protected WebElement selectPrioridad;
 
-    @FindBy (xpath = "(//a[@role = 'button'])[position()=10]")
+    @FindBy (xpath = "(//a[@role = 'button'])[position()=16]")
     protected WebElement selectPrioridadQueja;
 
     @FindBy (xpath = "//input[contains(@title, 'Buscar Ubicaciones')]")
@@ -125,12 +127,12 @@ public class CreaCasoPage extends WebBase {
 
             click(checkTipoCasoQueja);
         } else if (tipoDeCaso.equalsIgnoreCase("Solicitud")){
-        click(checkTipoCasoSolicitud);
-    }
+            click(checkTipoCasoSolicitud);
+        }else if (tipoDeCaso.equalsIgnoreCase("Sugerencia")) {
+            click(checkTipoCasoSugerencia);
 
-
+        }
         click(buttonSiguiente);
-
 
     }
     public void creacionCasoFelicitaciones(String cuenta, String selectOrigenCaso, String prioridadCaso, String almacen, String asunto, String descripcion, String planesAccion, String estado){
@@ -326,6 +328,48 @@ public class CreaCasoPage extends WebBase {
 
     }
 
+    public void creacionCasoSugerencia(String cuenta, String selectOrigenCaso, String prioridadCaso, String almacen, String asunto, String descripcion, String planesAccion, String estado){
+        var wait = webDriverWait(Duration.ofSeconds(10));
+        general.tiempoEsperaFijo();
+
+        cuenta = general.primelaLetraDeCadaPalabra(cuenta);
+        type(campoBuscarCuenta, cuenta);
+        wait.until(ExpectedConditions.elementToBeClickable(clickCuenta));
+        click(clickCuenta);
+        wait.until(ExpectedConditions.elementToBeClickable(seleccionaCuenta));
+        click(seleccionaCuenta);
+
+        click(selectOrigen);
+        selectOrigenCaso = general.primelaLetraDeCadaPalabra(selectOrigenCaso);
+        WebElement origenCaso = find().getElementByXPath("//a[text()='"+selectOrigenCaso+"']");
+        wait.until(ExpectedConditions.elementToBeClickable(origenCaso));
+        click(origenCaso);
+
+        click(selectPrioridad);
+        prioridadCaso = general.primelaLetraDeCadaPalabra(prioridadCaso);
+        WebElement casoPrioridad = find().getElementByXPath("//a[text()='"+prioridadCaso+"']");
+        wait.until(ExpectedConditions.elementToBeClickable(casoPrioridad));
+        click(casoPrioridad);
+
+        type(ubicacionAlmacen, almacen);
+        wait.until(ExpectedConditions.elementToBeClickable(resultadoAlmacen));
+        click(resultadoAlmacen);
+        wait.until(ExpectedConditions.elementToBeClickable(seleccionaAlmacen));
+        click(seleccionaAlmacen);
+        type(campoAsunto, asunto);
+        type(campoDescripcion, descripcion);
+        type(campoPlanes, planesAccion);
+
+        click(selectEstado);
+        estado = general.primelaLetraDeCadaPalabra(estado);
+        WebElement selectEstado = find().getElementByXPath("//a[contains(text(),'"+estado+"')]");
+        wait.until(ExpectedConditions.elementToBeClickable(selectEstado));
+        click(selectEstado);
+        general.tiempoEsperaFijo();
+        click(guardarCaso);
+
+
+    }
     public void verifcarCasoCreado(){
 
         general.tiempoEsperaFijo();

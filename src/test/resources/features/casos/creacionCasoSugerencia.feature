@@ -3,7 +3,7 @@
 Característica: Prueba de concepto SpringBoot + Cucumber - sandBox
 
 
-  @creacionCasoFelicitaciones
+  @creacionCasoSugerencia
   Esquema del escenario: Creacion de caso
 
     Dado que ingresamos a la pagina de Salesforce
@@ -11,8 +11,8 @@ Característica: Prueba de concepto SpringBoot + Cucumber - sandBox
     Y iniciamos sesion
     Y hacemos proceso de seleccion Cliente
     Y Desplegamos el menu de busqueda
-    Y Entramos a nuevo caso, Seleccionamos el tipo de caso Felicitaciones
-    Y creamos un caso de felicitaciones <cuenta> <selectOrigenCaso> <prioridadCaso> <almacen> <asunto> <descripcion> <planesDeAccion> <estado>
+    Y Entramos a nuevo caso, Seleccionamos el tipo de caso Sugerencia
+    Y creamos un caso de Sugerencia <cuenta> <selectOrigenCaso> <prioridadCaso> <almacen> <asunto> <descripcion> <planesDeAccion> <estado>
     Entonces verificamos el caso creado
 
 

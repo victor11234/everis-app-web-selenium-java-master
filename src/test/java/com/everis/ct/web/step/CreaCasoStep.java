@@ -52,6 +52,13 @@ public class CreaCasoStep {
         page.creaCasoPage().creacionCasoSolicitud(cuenta, selectOrigenCaso, prioridadCaso, area, clase, almacen, asunto, descripcion, planesAccion, estado);
 
     }
+
+    @ScreenShotAfter
+    public void crearCasoSugerencia(String cuenta, String selectOrigenCaso, String prioridadCaso, String almacen, String asunto, String descripcion, String planesAccion, String estado){
+
+        page.creaCasoPage().creacionCasoSugerencia(cuenta, selectOrigenCaso, prioridadCaso, almacen, asunto, descripcion, planesAccion, estado);
+
+    }
     @ScreenShotAfter
     public void verifcaCasoCreado(){
 
