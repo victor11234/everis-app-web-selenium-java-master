@@ -4,7 +4,7 @@ Característica: Prueba de concepto SpringBoot + Cucumber - sandBox
 
 
   @creacionCasoFelicitaciones
-  Esquema del escenario: Creacion de caso
+  Esquema del escenario:CreacionCasoFelicitaciones
 
     Dado que ingresamos a la pagina de Salesforce
     Y ingresamos los datos de inicio de sesion <usuario> <clave>

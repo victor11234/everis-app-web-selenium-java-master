@@ -117,6 +117,7 @@ public class CreaCasoPage extends WebBase {
         click(buttonNew);
 
         general.tiempoEsperaFijo();
+        wait.until(ExpectedConditions.elementToBeClickable(checkTipoCasoFelici));
 
         if(tipoDeCaso.equalsIgnoreCase("Felicitaciones")) {
             click(checkTipoCasoFelici);
