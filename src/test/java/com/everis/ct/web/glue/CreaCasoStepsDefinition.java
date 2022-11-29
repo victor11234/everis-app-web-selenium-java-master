@@ -71,7 +71,7 @@ public class CreaCasoStepsDefinition {
     public void creamosUnCasoDeSugerencia(String cuenta, String selectOrigenCaso, String prioridadCaso, String almacen, String asunto, String descripcion,String planesAccion, String estado) {
         try {
             Thread.sleep(10000);
-            casoStep.crearCasoFelicitaciones(cuenta, selectOrigenCaso, prioridadCaso, almacen, asunto, descripcion, planesAccion, estado);
+            casoStep.crearCasoSugerencia(cuenta, selectOrigenCaso, prioridadCaso, almacen, asunto, descripcion, planesAccion, estado);
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
@@ -82,6 +82,7 @@ public class CreaCasoStepsDefinition {
 
         casoStep.verifcaCasoCreado();
     }
+
 
 
 }

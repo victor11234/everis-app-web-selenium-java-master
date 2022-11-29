@@ -64,8 +64,8 @@ public class Hooks {
         System.out.println(scenario.getScenario().getName());
         scenario.shotWhenFail();
         general.obtenerHoraFinal();
-        //general.procesoReporte();
-        //general.modificacionCeldas(scenario.getScenario().getName().toString(),this.scenario.getScenario().getStatus().toString());
+        general.procesoReporte();
+        general.modificacionCeldas(scenario.getScenario().getName().toString(),this.scenario.getScenario().getStatus().toString());
     }
 
 }

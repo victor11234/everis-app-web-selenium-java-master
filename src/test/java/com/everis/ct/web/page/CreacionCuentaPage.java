@@ -2,11 +2,8 @@ package com.everis.ct.web.page;
 
 import com.everis.ct.web.base.WebBase;
 import com.everis.ct.web.util.General;
-import com.everis.ct.web.util.Utilidad;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -71,6 +68,9 @@ public class CreacionCuentaPage extends WebBase {
 
     @FindBy (xpath = "//a[text()='Haga clic aquí para acceder a la Cuenta']")
     protected WebElement verificaCuenta;
+
+
+
     protected General general = new General();
     public void listaDesplegable(){
         general.tiempoEsperaFijo();
@@ -103,14 +103,14 @@ public class CreacionCuentaPage extends WebBase {
         //driver().switchTo().frame(iframe);
         click(botonSiguiente);
         click(botonSiguiente);
-       // general.tiempoEsperaFijo();
+        // general.tiempoEsperaFijo();
         //actions().click(botonSiguiente).perform();
 
         //if (!general.verificarSiExisteObjeto(driver(), "//a[text()='Haga clic aquí para acceder a la Cuenta']")&& !general.verificarSiExisteObjeto(driver(), "//span[text()='Empresa']")){
 
-          //  click(botonSiguiente);
+        //  click(botonSiguiente);
 
-       // }
+        // }
 
         if (!general.verificarSiExisteObjeto(driver(), "//a[text()='Haga clic aquí para acceder a la Cuenta']")) {
             if (tipoCuenta.equalsIgnoreCase("Empresas")) {

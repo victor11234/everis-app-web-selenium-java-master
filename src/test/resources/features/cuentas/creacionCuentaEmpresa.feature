@@ -19,6 +19,6 @@ Característica: Prueba de concepto SpringBoot + Cucumber - sandBox
 
       | Usuario                                              | Clave        | CuentaUsuario | nombreCuenta        | identificacionEmpresa |
       |victor.manuel.lozano.cardona@colcomercio.com.co.alkqa | Pruebas2023* | N/A           | N/A                 | RUT                   |
-      #|victor.manuel.lozano.cardona@colcomercio.com.co.alkqa | Pruebas2023* | 2314141412    | Prueba Empresa     | NIT                   |
+      |victor.manuel.lozano.cardona@colcomercio.com.co.alkqa | Pruebas2023* | 2314141412    | Prueba Empresa     | NIT                   |
 
 

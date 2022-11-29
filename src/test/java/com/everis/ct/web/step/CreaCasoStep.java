@@ -65,4 +65,13 @@ public class CreaCasoStep {
         page.creaCasoPage().verifcarCasoCreado();
     }
 
+    @ScreenShotAfter
+    public void creaCuentaDesdeCaso(String cuenta, String tipoRegistro, String nombreCuenta, String apellido){
+        page.creacionCuentaDesdeCaso().creaCuenta(cuenta, tipoRegistro, nombreCuenta, apellido);
+    }
+
+    public void creaCaso(String selectOrigenCaso, String prioridadCaso, String almacen, String asunto, String descripcion, String planesAccion, String estado){
+        page.creacionCuentaDesdeCaso().creacionCasoFelicitaciones(selectOrigenCaso, prioridadCaso, almacen, asunto, descripcion, planesAccion, estado);
+    }
+
 }

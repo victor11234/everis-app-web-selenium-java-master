@@ -25,8 +25,10 @@ public class PaginaInicioPage extends WebBase {
 
     protected General general = new General();
     public void ingresamosAlMenuDeseado(String opcion) {
+        general.tiempoEsperaFijo();
         var wait = webDriverWait(Duration.ofSeconds(30));
         wait.until(ExpectedConditions.elementToBeClickable(waffleOption));
+        general.tiempoEsperaFijo();
         click(waffleOption);
         wait.until(ExpectedConditions.elementToBeClickable(atencionAlCliente));
         click(buttonVerTodo);
