@@ -317,8 +317,9 @@ public class CreaCasoPage extends WebBase {
         type(campoDescripcion2, descripcion);
         type(campoPlanes2, planesAccion);
 
-        click(selectEstado);
+
         general.tiempoEsperaFijo();
+        click(selectEstado);
         estado = general.primelaLetraDeCadaPalabra(estado);
         WebElement selectEstado = find().getElementByXPath("//a[contains(text(),'"+estado+"')]");
         wait.until(ExpectedConditions.elementToBeClickable(selectEstado));

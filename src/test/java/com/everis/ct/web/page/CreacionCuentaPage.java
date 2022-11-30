@@ -95,14 +95,21 @@ public class CreacionCuentaPage extends WebBase {
         driver().switchTo().frame(iframe);
         wait.until(ExpectedConditions.elementToBeClickable(campoCuenta));
         type(campoCuenta, cuenta);
+        click(botonSiguiente);
+        click(botonSiguiente);
+        if (general.verificarSiExisteObjeto(driver(), "//a[text()='Haga clic aquí para acceder a la Cuenta']")){
+
+            Assert.fail("El número de cuenta indicado ya se encuentra creado");
+        }
+
+
 
     }
     public void busquedaCuenta(String tipoCuenta){
         var wait  = webDriverWait(Duration.ofSeconds(20));
         // wait.until(ExpectedConditions.elementToBeClickable(iframe));
         //driver().switchTo().frame(iframe);
-        click(botonSiguiente);
-        click(botonSiguiente);
+
         // general.tiempoEsperaFijo();
         //actions().click(botonSiguiente).perform();
 
@@ -112,7 +119,7 @@ public class CreacionCuentaPage extends WebBase {
 
         // }
 
-        if (!general.verificarSiExisteObjeto(driver(), "//a[text()='Haga clic aquí para acceder a la Cuenta']")) {
+
             if (tipoCuenta.equalsIgnoreCase("Empresas")) {
                 wait.until(ExpectedConditions.elementToBeClickable(cuentaEmpresa));
                 click(cuentaEmpresa);
@@ -126,10 +133,8 @@ public class CreacionCuentaPage extends WebBase {
             general.tiempoEsperaFijo();
             wait.until(ExpectedConditions.elementToBeClickable(botonSiguiente));
             click(botonSiguiente);
-        }else {
-            Assert.fail("El número de cuenta indicado ya se encuentra creado");
         }
-    }
+
 
     public void crearCuentaEmpresa(String nombreCuenta, String identificacionEmpresa){
         if (nombreCuenta.equalsIgnoreCase("N/A"))

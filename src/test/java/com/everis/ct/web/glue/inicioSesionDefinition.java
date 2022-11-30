@@ -53,4 +53,7 @@ public class inicioSesionDefinition {
         inicioSesionStep.verificamosElLogueoExitoso();
     }
 
-}
+    @Entonces("verificamos el logueo fallido")
+    public void verificamosElLogueoFallido() {
+      inicioSesionStep.verificamoElLogueoFallido();
+    }}
