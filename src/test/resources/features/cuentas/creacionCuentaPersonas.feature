@@ -18,8 +18,8 @@ Característica: Prueba de concepto SpringBoot + Cucumber - sandBox
     Ejemplos:
 
       | Usuario                                                  | Clave        | CuentaUsuario  | nombre           | apellido | email            | telefono        | documento              |
-      #| jefersonstiben.pedrazaecheverry@colcomercio.com.co.alkqa | Js101609     | N/A            | N/A              | N/A      | N/A              | N/A             | Cedula                 |
-      | jefersonstiben.pedrazaecheverry@colcomercio.com.co.alkqa | Js101609     | 323123        | Prueba          | Personas | prueba@gmail.com | 3105686111      | Cedula de extrajeria   |
+      | jefersonstiben.pedrazaecheverry@colcomercio.com.co.alkqa | Js101609     | N/A            | N/A              | N/A      | N/A              | N/A             | Cedula                 |
+      #| jefersonstiben.pedrazaecheverry@colcomercio.com.co.alkqa | Js101609     | 323123        | Prueba          | Personas | prueba@gmail.com | 3105686111      | Cedula de extrajeria   |
 
 
 

@@ -9,7 +9,7 @@ Característica: Prueba de concepto SpringBoot + Cucumber - sandBox
     Y iniciamos sesion
     Y hacemos proceso de seleccion Cliente
     Y en la lista desplegable seleccionamos la opcion cuentas
-    Y ingresamos la cuenta y realizamos la busqueda <CuentaUsuario>
+    Y ingresamos la cuenta y realizamos la busqueda <cuentaUsuario>
     Y seleccionamos el tipo de cuenta Aliados
     Y Si la cuenta no existe realizamos la creacion de aliados <cuenta>
     Entonces verficamos que la cuenta está creada

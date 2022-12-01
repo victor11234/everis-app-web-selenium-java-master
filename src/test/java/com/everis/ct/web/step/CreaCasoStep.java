@@ -70,6 +70,7 @@ public class CreaCasoStep {
         page.creacionCuentaDesdeCaso().creaCuenta(cuenta, tipoRegistro, nombreCuenta, apellido);
     }
 
+    @ScreenShotAfter
     public void creaCaso(String selectOrigenCaso, String prioridadCaso, String almacen, String asunto, String descripcion, String planesAccion, String estado){
         page.creacionCuentaDesdeCaso().creacionCasoFelicitaciones(selectOrigenCaso, prioridadCaso, almacen, asunto, descripcion, planesAccion, estado);
     }

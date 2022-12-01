@@ -45,6 +45,7 @@ public class CreacionCuentaStep {
         page.creacionCuenta().crearCuentaAliados(cuenta);
     }
 
+    @ScreenShotAfter
     public void cuentaExistente(String cuenta){
 
         page.creacionCuenta().cuentaExistente(cuenta);

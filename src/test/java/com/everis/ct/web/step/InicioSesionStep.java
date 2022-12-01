@@ -16,10 +16,12 @@ public class InicioSesionStep {
     private StepPages page;
     @ScreenShotAfter
     public void ingresarDatosSesion(String user, String pass){page.inicioSesionPage().ingresarDatosSesion(user, pass);}
+
     @ScreenShotBefore
     public void iniciamosSesion() {
         page.inicioSesionPage().iniciamosSesion();
     }
+
     @ScreenShotAfter
     public void verificamosElLogueoExitoso() {
         page.inicioSesionPage().verificamosElLogueoExitoso();

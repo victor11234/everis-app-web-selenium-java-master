@@ -98,9 +98,9 @@ public class CreaCasoPage extends WebBase {
     General general = new General();
 
     public void listaDesplegable(){
-
+        var wait = webDriverWait(Duration.ofSeconds(10));
         general.tiempoEsperaFijo();
-
+        wait.until(ExpectedConditions.elementToBeClickable(listaDesplegable));
         click(listaDesplegable);
         click(opcionCasos);
         general.tiempoEsperaFijo();
