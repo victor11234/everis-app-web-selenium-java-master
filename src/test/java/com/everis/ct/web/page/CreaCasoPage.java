@@ -17,7 +17,7 @@ public class CreaCasoPage extends WebBase {
     @FindBy (xpath = "//a[@data-label='Casos']")
     protected WebElement opcionCasos;
 
-    @FindBy (xpath = "//a[@title='Casos']")
+    @FindBy (xpath = "//a[@class='slds-context-bar__label-action slds-p-left--xx-small']")
     protected WebElement botonCasos;
 
     //Ingresar a casos
@@ -51,14 +51,12 @@ public class CreaCasoPage extends WebBase {
     @FindBy (xpath = "//tr[1]/td/a[@data-refid='recordId']")
     protected WebElement seleccionaCuenta;
 
-    @FindBy (xpath = "(//a[text()='--Ninguno--'])[position()=1]")
+    @FindBy (xpath = "(//a[@class='select'])[position()=1]")
     protected WebElement selectOrigen;
 
-    @FindBy (xpath = "//a[text()='Baja']")
+    @FindBy (xpath = "(//a[@class='select'])[position()=2]")
     protected WebElement selectPrioridad;
 
-    @FindBy (xpath = "(//a[@role = 'button'])[position()=16]")
-    protected WebElement selectPrioridadQueja;
 
     @FindBy (xpath = "//input[contains(@title, 'Buscar Ubicaciones')]")
     protected  WebElement ubicacionAlmacen;
@@ -240,7 +238,7 @@ public class CreaCasoPage extends WebBase {
         wait.until(ExpectedConditions.elementToBeClickable(origenCaso));
         click(origenCaso);
 
-        click(selectPrioridadQueja);
+        click(selectPrioridad);
         prioridadCaso = general.primelaLetraDeCadaPalabra(prioridadCaso);
         WebElement casoPrioridad = find().getElementByXPath("//a[text()='"+prioridadCaso+"']");
         wait.until(ExpectedConditions.elementToBeClickable(casoPrioridad));

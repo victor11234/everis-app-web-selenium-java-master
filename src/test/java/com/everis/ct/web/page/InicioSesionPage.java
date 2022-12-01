@@ -58,12 +58,10 @@ public class InicioSesionPage extends WebBase {
     public void verificamosElLogueoFallido() {
         var wait = webDriverWait(Duration.ofSeconds(30));
         general.tiempoEsperaFijo();
-        if(!general.verificarSiExisteObjeto(driver(),"//div[@class = 'slds-icon-waffle']")){
+        if(general.verificarSiExisteObjeto(driver(),"//div[@class = 'slds-icon-waffle']")){
 
-            Assert.fail("El usuario y contraseña son incorrectos");
+            Assert.fail("El usuario y contraseña son correctos");
         }
-        wait.until(ExpectedConditions.elementToBeClickable(loginNoxitoso));
-
 
     }
 

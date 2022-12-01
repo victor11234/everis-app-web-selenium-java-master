@@ -20,7 +20,7 @@ public class CreacionCuentaPage extends WebBase {
     @FindBy (xpath = "//span[text()='Cuentas']")
     protected WebElement opcionCuentas;
 
-    @FindBy (xpath = "//a[@title='Cuentas']")
+    @FindBy (xpath = "//a[@class='slds-context-bar__label-action slds-p-left--xx-small']")
     protected WebElement botonCuentas;
 
     //Xpath busqueda de cuenta
@@ -33,7 +33,7 @@ public class CreacionCuentaPage extends WebBase {
     @FindBy (xpath = "//input[@name='Numero_de_Identificacion_screen']")
     protected WebElement campoCuenta;
 
-    @FindBy (xpath = "//div[@class= 'actionsRight slds-grid']")
+    @FindBy (xpath = "//button[contains(text(), 'Siguiente')]")
     protected WebElement botonSiguiente;
 
 
@@ -69,18 +69,13 @@ public class CreacionCuentaPage extends WebBase {
     @FindBy (xpath = "//a[text()='Haga clic aquí para acceder a la Cuenta']")
     protected WebElement verificaCuenta;
 
-
-
     protected General general = new General();
     public void listaDesplegable(){
         general.tiempoEsperaFijo();
-        var wait = webDriverWait(Duration.ofSeconds(30));
-        wait.until(ExpectedConditions.elementToBeClickable(listaDesplegable));
         click(listaDesplegable);
-
-        wait.until(ExpectedConditions.elementToBeClickable(opcionCuentas));
+        general.tiempoEsperaFijo();
         click(opcionCuentas);
-        wait.until(ExpectedConditions.elementToBeClickable(botonCuentas));
+        general.tiempoEsperaFijo();
         click(botonCuentas);
     }
 
@@ -183,6 +178,25 @@ public class CreacionCuentaPage extends WebBase {
         type(campoNombreCuenta, cuenta);
         wait.until(ExpectedConditions.elementToBeClickable(botonCrearCuenta));
         click(botonCrearCuenta);
+    }
+
+    public void cuentaExistente(String cuenta){
+
+        if (cuenta.equalsIgnoreCase("N/A"))
+            cuenta="1"+general.numeroAleatorio();
+        var wait  = webDriverWait(Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.elementToBeClickable(botonBusquedaCuenta));
+        click(botonBusquedaCuenta);
+        wait.until(ExpectedConditions.elementToBeClickable(iframe));
+        driver().switchTo().frame(iframe);
+        wait.until(ExpectedConditions.elementToBeClickable(campoCuenta));
+        type(campoCuenta, cuenta);
+        click(botonSiguiente);
+        if (!general.verificarSiExisteObjeto(driver(), "//a[text()='Haga clic aquí para acceder a la Cuenta']")){
+
+            Assert.fail("El número de cuenta indicado no se encuentra creada");
+        }
+
     }
 
     public void verificarCuenta(){

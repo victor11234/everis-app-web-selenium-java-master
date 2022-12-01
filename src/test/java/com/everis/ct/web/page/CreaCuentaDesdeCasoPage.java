@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.time.Duration;
 
-public class CreaCuentaDesdeCaso extends WebBase {
+public class CreaCuentaDesdeCasoPage extends WebBase {
 
     @FindBy (xpath = "//button[@title ='Mostrar menú de navegación']")
     protected WebElement listaDesplegable;
@@ -109,43 +109,7 @@ public class CreaCuentaDesdeCaso extends WebBase {
 
     General general = new General();
 
-    public void listaDesplegable(){
 
-        general.tiempoEsperaFijo();
-
-        click(listaDesplegable);
-        click(opcionCasos);
-        general.tiempoEsperaFijo();
-        click(botonCasos);
-    }
-
-    @ScreenShotAfter
-    public void seleccionTipoCaso(String tipoDeCaso){
-
-        var wait = webDriverWait(Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(buttonNew));
-        click(buttonNew);
-
-        general.tiempoEsperaFijo();
-        wait.until(ExpectedConditions.elementToBeClickable(checkTipoCasoFelici));
-
-        if(tipoDeCaso.equalsIgnoreCase("Felicitaciones")) {
-            click(checkTipoCasoFelici);
-        }
-        else if (tipoDeCaso.equalsIgnoreCase("Informacion")){
-            click(checkTipoCasoInforma);
-        }else if (tipoDeCaso.equalsIgnoreCase("Queja")){
-
-            click(checkTipoCasoQueja);
-        } else if (tipoDeCaso.equalsIgnoreCase("Solicitud")){
-            click(checkTipoCasoSolicitud);
-        }else if (tipoDeCaso.equalsIgnoreCase("Sugerencia")) {
-            click(checkTipoCasoSugerencia);
-
-        }
-        click(buttonSiguiente);
-
-    }
     public void creaCuenta(String cuenta, String tipoRegistro, String nombreCuenta, String apellido){
 
         var wait = webDriverWait(Duration.ofSeconds(10));

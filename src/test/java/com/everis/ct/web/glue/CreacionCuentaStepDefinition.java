@@ -46,11 +46,16 @@ public class CreacionCuentaStepDefinition {
         casoStep.crarCuentaAliados(cuenta);
     }
 
+    @Y("^ingresamos a la cuenta y realizamos la busqueda (.*)")
+    public void ingresamosALaCuentaYRealizamosLaBusqueda(String cuenta) {
+
+        casoStep.cuentaExistente(cuenta);
+    }
+
     @Entonces("verficamos que la cuenta está creada")
     public void verficamosQueLaCuentaEstáCreada() {
 
         casoStep.verificacuenta();
     }
-
 
 }

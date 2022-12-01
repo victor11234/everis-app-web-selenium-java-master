@@ -20,8 +20,8 @@ Característica: Prueba de concepto SpringBoot + Cucumber - sandBox
 
     Ejemplos:
 
-      | usuario                                               | clave        | selectOrigenCaso|  cuenta               |   prioridadCaso | area     | clase      | almacen | asunto |descripcion | planesDeAccion | estado |
-      | victor.manuel.lozano.cardona@colcomercio.com.co.alkqa | Pruebas2023* |    Teléfono     |  victor lozano        |    Media         | POSVENTA | DETERIORADO| 68      | dasda  | sdasd      |  ewqeqwew     | Nuevo  |
+      | usuario                                               | clave        | selectOrigenCaso|  cuenta               |   prioridadCaso | area     | clase      | almacen | asunto  |descripcion  | planesDeAccion | estado |
+      | victor.manuel.lozano.cardona@colcomercio.com.co.alkqa | Pruebas2023* |    Teléfono     |  victor lozano        |    Media        | POSVENTA | DETERIORADO| 68      | prueba  | prueba      |  prueba        | Nuevo  |
 
 
 

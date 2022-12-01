@@ -11,7 +11,7 @@ public class StepPages {
     public CreacionCuentaPage creacionCuenta() {return new CreacionCuentaPage();
     }
 
-    public CreaCuentaDesdeCaso creacionCuentaDesdeCaso(){return new CreaCuentaDesdeCaso();}
+    public CreaCuentaDesdeCasoPage creacionCuentaDesdeCaso(){return new CreaCuentaDesdeCasoPage();}
 
     public InicioSesionPage inicioSesionPage() {return new InicioSesionPage();
     }

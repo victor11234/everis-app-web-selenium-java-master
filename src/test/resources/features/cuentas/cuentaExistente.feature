@@ -10,7 +10,7 @@ Característica: Prueba de concepto SpringBoot + Cucumber - sandBox
     Y iniciamos sesion
     Y hacemos proceso de seleccion Cliente
     Y en la lista desplegable seleccionamos la opcion cuentas
-    Y ingresamos la cuenta y realizamos la busqueda <CuentaUsuario>
+    Y ingresamos a la cuenta y realizamos la busqueda <CuentaUsuario>
     Entonces verficamos que la cuenta está creada
 
     Ejemplos:
